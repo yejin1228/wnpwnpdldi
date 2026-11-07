@@ -11,8 +11,8 @@ const notoSansKr = Noto_Sans_KR({
 })
 
 export const metadata: Metadata = {
-  title: '안산시 빈집 안전관리 플랫폼',
-  description: '시민 제보와 시 담당자의 현장점검을 연결하는 안산시 빈집 안전관리 플랫폼',
+  title: 'VOIDA · 안산시 빈집 관리',
+  description: '보이지 않던 빈집이, 이제 보이다. 안산시 빈집의 긴급도와 시민 제보, 현장 점검·조치 기록을 한곳에서 관리합니다.',
   icons: {
     icon: [
       { url: '/icon-light-32x32.png', media: '(prefers-color-scheme: light)' },

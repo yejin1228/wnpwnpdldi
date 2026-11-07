@@ -5,7 +5,7 @@ import { SiteHeader } from '@/components/site/site-header'
 import { getPatrolScreenshots } from '@/lib/api'
 
 export const metadata: Metadata = {
-  title: '순찰대 앱 | 안산시 빈집 안전관리 플랫폼',
+  title: '순찰대 앱 | VOIDA',
 }
 
 export default async function PatrolPage() {

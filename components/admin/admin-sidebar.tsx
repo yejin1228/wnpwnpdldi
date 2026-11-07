@@ -26,7 +26,7 @@ export function AdminSidebar() {
       <Link href="/" className="flex h-16 items-center gap-2.5 border-b border-white/10 px-5">
         <BrandMark className="bg-brand" />
         <span className="flex flex-col leading-tight">
-          <span className="text-sm font-semibold">빈집 안전관리</span>
+          <span className="text-sm font-bold tracking-tight">VOIDA</span>
           <span className="text-xs text-primary-foreground/75">시 담당자</span>
         </span>
       </Link>
