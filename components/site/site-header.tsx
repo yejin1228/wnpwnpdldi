@@ -14,7 +14,10 @@ export function SiteHeader() {
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-6 px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2.5">
           <BrandMark />
-          <span className="text-sm font-semibold text-primary md:text-base">안산시 빈집 안전관리 플랫폼</span>
+          <span className="flex items-baseline gap-2">
+            <span className="text-base font-bold tracking-tight text-primary md:text-lg">VOIDA</span>
+            <span className="hidden text-xs text-muted-foreground sm:inline">안산시 빈집 관리</span>
+          </span>
         </Link>
         <nav aria-label="주요 메뉴" className="hidden md:block">
           <ul className="flex items-center gap-1">

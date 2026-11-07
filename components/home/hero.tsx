@@ -10,15 +10,16 @@ export function Hero() {
       <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-14 md:grid-cols-2 md:px-6 md:py-20">
         <div className="flex flex-col gap-6">
           <span className="w-fit rounded-full border border-brand/20 bg-background px-3 py-1 text-xs font-medium text-brand">
-            안산시 빈집 안전관리
+            VOIDA · 안산시 빈집 관리
           </span>
           <h1 className="text-balance text-3xl font-bold leading-tight tracking-tight text-primary md:text-5xl">
-            시민의 제보와 현장점검을 잇는
+            보이지 않던 빈집이,
             <br />
-            안산시 빈집 안전관리
+            이제 보이다
           </h1>
           <p className="max-w-md text-pretty leading-relaxed text-muted-foreground">
-            방치된 빈집의 위험을 시민이 제보하면, 시 담당자가 우선순위에 따라 현장을 점검하고 상태를 관리합니다.
+            안산시 빈집정비계획(안)의 관리 대상 빈집을 긴급도 순으로 보여 줍니다. 시민 제보는 30일 안 현장조사로, 현장
+            점검은 조치 기록으로 이어집니다.
           </p>
           <div className="flex flex-wrap gap-3">
             <Link href="/report" className={cn(buttonVariants({ size: 'lg' }), 'h-11 px-5')}>
