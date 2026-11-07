@@ -119,6 +119,8 @@ export async function getAdminSummary(): Promise<AdminSummary> {
     totalSites: summary.sites,
     newReports: summary.reports30,
     urgent: summary.byColor.DARK_RED + summary.byColor.RED,
+    darkRed: summary.byColor.DARK_RED,
+    red: summary.byColor.RED,
     orange: summary.byColor.ORANGE,
     green: summary.byColor.GREEN,
   }

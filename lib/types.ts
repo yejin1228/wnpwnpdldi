@@ -41,6 +41,10 @@ export interface AdminSummary {
   newReports: number
   /** 진한 빨강 + 빨강 */
   urgent: number
+  /** 진한 빨강 */
+  darkRed: number
+  /** 빨강 */
+  red: number
   /** 주황 */
   orange: number
   /** 초록 */
