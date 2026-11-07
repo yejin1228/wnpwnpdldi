@@ -30,6 +30,7 @@ import type {
   ZoneSummary,
 } from '@/lib/contracts'
 import { badRequest, notFound } from './http'
+import { kvEnabled, kvGet, kvSet } from './kv'
 
 /** 현장조사 기한: 접수일 + 30일 (빈집법 시행령 제10조의3) */
 const REPORT_DUE_DAYS = 30
@@ -129,11 +130,86 @@ function createStore(): Store {
   return { sites, byId, reports, nextSeq: maxSeq + 1 }
 }
 
-const g = globalThis as typeof globalThis & { __voidStore?: Store }
+const g = globalThis as typeof globalThis & { __voidStore?: Store; __voidLock?: Promise<unknown> }
 
 function db(): Store {
   if (!g.__voidStore) g.__voidStore = createStore()
   return g.__voidStore
+}
+
+// ───────── 공유 저장소(배포본) ─────────
+
+const KV_KEY = 'voida:state:v1'
+
+interface Snapshot {
+  v: 1
+  sites: SiteState[]
+  reports: ReportRecord[]
+  nextSeq: number
+}
+
+function dump(s: Store): string {
+  const snap: Snapshot = { v: 1, sites: s.sites, reports: s.reports, nextSeq: s.nextSeq }
+  return JSON.stringify(snap)
+}
+
+function hydrate(raw: string): Store | null {
+  try {
+    const snap = JSON.parse(raw) as Snapshot
+    if (snap.v !== 1 || !Array.isArray(snap.sites) || !Array.isArray(snap.reports)) return null
+    return { sites: snap.sites, byId: new Map(snap.sites.map((x) => [x.id, x])), reports: snap.reports, nextSeq: snap.nextSeq }
+  } catch {
+    return null
+  }
+}
+
+/** 같은 서버 안에서 요청이 겹쳐도 읽기→처리→저장이 섞이지 않게 한 줄로 세운다 */
+function serial<T>(task: () => Promise<T>): Promise<T> {
+  const prev = g.__voidLock ?? Promise.resolve()
+  const next = prev.then(task, task)
+  g.__voidLock = next.catch(() => undefined)
+  return next
+}
+
+/**
+ * 모든 API는 이 함수를 거친다. Redis가 설정돼 있으면 처리 전에 최신 상태를 읽고,
+ * 바꾸는 요청(write)이면 처리 뒤 저장한다. Redis가 없거나 실패하면 메모리로 계속한다.
+ */
+export function withStore<T>(write: boolean, fn: () => T): Promise<T> {
+  if (!kvEnabled) return Promise.resolve().then(fn)
+  return serial(async () => {
+    try {
+      const raw = await kvGet(KV_KEY)
+      const loaded = raw ? hydrate(raw) : null
+      if (loaded) {
+        g.__voidStore = loaded
+      } else {
+        g.__voidStore = createStore()
+        await kvSet(KV_KEY, dump(g.__voidStore))
+      }
+    } catch (e) {
+      console.warn('[store] Redis 읽기 실패, 메모리로 계속', e)
+    }
+    const out = fn()
+    if (write) {
+      try {
+        await kvSet(KV_KEY, dump(db()))
+      } catch (e) {
+        console.warn('[store] Redis 저장 실패, 메모리에만 남음', e)
+      }
+    }
+    return out
+  })
+}
+
+/** 시연 초기화: 처음 상태(빨강 24 · 주황 65 · 초록 41, 시연 제보 5건)로 되돌린다 */
+export async function resetStore(): Promise<Summary> {
+  return serial(async () => {
+    g.__voidStore = createStore()
+    if (kvEnabled) await kvSet(KV_KEY, dump(g.__voidStore))
+    const { sites, reports } = g.__voidStore
+    return summaryOf(sites.map((s) => siteView(s, reports)), reports)
+  })
 }
 
 // ───────── 구역(250m 격자) ─────────

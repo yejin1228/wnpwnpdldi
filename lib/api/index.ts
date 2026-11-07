@@ -120,7 +120,8 @@ export async function submitReport(draft: ReportDraft): Promise<ReportReceipt> {
   form.set('description', draft.content)
   form.set('lat', String(draft.zone.lat))
   form.set('lng', String(draft.zone.lng))
-  for (const [i, p] of draft.photos.slice(0, 3).entries()) form.append('images', await shrink(p), `photo-${i + 1}.jpg`)
+  // 서버는 사진 장수만 기록한다. 파일을 보내지 않아 큰 사진·HEIC 때문에 제출이 실패하지 않는다
+  form.set('photoCount', String(Math.min(3, draft.photos.length)))
   const r = await api<ReportReceiptResponse>('/api/reports', { method: 'POST', body: form })
   return { receiptNo: r.reportId, category: draft.category, zoneLabel: r.zoneLabel, status: 'received' }
 }
@@ -211,7 +212,9 @@ export async function getAiReading(buildingId: string): Promise<AiReading> {
   if (!photo) throw new Error('현장 사진을 먼저 올려 주세요')
   const form = new FormData()
   form.set('siteId', buildingId)
-  form.set('image', await shrink(photo), 'inspection.jpg')
+  const image = await shrink(photo)
+  if (image.size > 4_000_000) throw new Error('사진 용량이 너무 커서 올릴 수 없습니다. 다른 사진을 골라 주세요.')
+  form.set('image', image, 'inspection.jpg')
   const r = await api<AnalysisResult>('/api/ai/analyze', { method: 'POST', body: form })
   return {
     buildingId,
