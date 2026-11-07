@@ -2,28 +2,32 @@
 
 import { useState } from 'react'
 import useSWR from 'swr'
-import { Bot, CircleCheck, LoaderCircle, MapPin, RefreshCw, Upload, X } from 'lucide-react'
+import { Bot, CircleCheck, Hammer, LoaderCircle, MapPin, ShieldCheck, Upload, X } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Label } from '@/components/ui/label'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { Textarea } from '@/components/ui/textarea'
 import { PhotoPicker } from '@/components/shared/photo-picker'
-import { getAiReading, getBuildingReports, updateBuildingStatus, uploadInspectionPhotos } from '@/lib/api'
-import { INSPECTION_STATUS_LABEL, categoryLabel } from '@/lib/labels'
-import type { AiReading, Building, InspectionStatus, StatusUpdateResult } from '@/lib/types'
+import { completeAction, confirmInspection, getAiReading, getBuildingReports, uploadInspectionPhotos } from '@/lib/api'
+import { EXPOSURE_LABEL, categoryLabel } from '@/lib/labels'
+import { SOS_STYLE, STAGE_LABEL, type HazardStage } from '@/lib/sos'
+import type { AiReading, Building } from '@/lib/types'
 import { cn } from '@/lib/utils'
 
-const STEPS = ['건물·제보 확인', '현장 사진 업로드', 'AI 판독 결과', '점수·상태 갱신']
+const STEPS = ['빈집·제보 확인', '현장 사진 업로드', 'AI 판독 결과', '위해 단계 확정·조치']
 
-const STATUS_ITEMS = (Object.keys(INSPECTION_STATUS_LABEL) as InspectionStatus[]).map((v) => ({
-  value: v,
-  label: INSPECTION_STATUS_LABEL[v],
-}))
+const STAGE_ITEMS = [
+  { value: '1', label: STAGE_LABEL[1] },
+  { value: '2', label: STAGE_LABEL[2] },
+  { value: '3', label: STAGE_LABEL[3] },
+  { value: 'none', label: '이상 없음' },
+]
 
 interface BuildingPanelProps {
   building: Building
   onClose: () => void
-  onUpdated: (result: StatusUpdateResult) => void
+  onUpdated: (building: Building) => void
 }
 
 function Section({ step, active, done, children }: { step: number; active: boolean; done: boolean; children: React.ReactNode }) {
@@ -45,6 +49,23 @@ function Section({ step, active, done, children }: { step: number; active: boole
   )
 }
 
+function SosBadge({ building }: { building: Building }) {
+  const s = SOS_STYLE[building.sos.color]
+  return (
+    <div className="rounded-lg p-3 text-white" style={{ background: s.color }}>
+      <p className="text-[11px] text-white/80">SOS 긴급도</p>
+      <p className="mt-0.5 text-lg font-bold">
+        {s.label} · {s.action}
+      </p>
+      <ul className="mt-1.5 flex flex-col gap-0.5 text-xs text-white/90">
+        {building.sos.reasons.map((r) => (
+          <li key={r}>· {r}</li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+
 export function BuildingPanel({ building, onClose, onUpdated }: BuildingPanelProps) {
   const { data: reports, isLoading } = useSWR(['reports', building.id], () => getBuildingReports(building.id))
 
@@ -53,11 +74,14 @@ export function BuildingPanel({ building, onClose, onUpdated }: BuildingPanelPro
   const [uploading, setUploading] = useState(false)
   const [reading, setReading] = useState<AiReading | null>(null)
   const [readingLoading, setReadingLoading] = useState(false)
-  const [status, setStatus] = useState<InspectionStatus>(building.inspectionStatus)
-  const [updating, setUpdating] = useState(false)
-  const [result, setResult] = useState<StatusUpdateResult | null>(null)
+  const [stage, setStage] = useState<string>('none')
+  const [journal, setJournal] = useState('')
+  const [saving, setSaving] = useState(false)
+  const [confirmed, setConfirmed] = useState(false)
+  const [acting, setActing] = useState(false)
 
-  const currentStep = result ? 5 : reading ? 4 : uploadedCount ? 3 : 2
+  const currentStep = confirmed ? 5 : reading ? 4 : uploadedCount ? 3 : 2
+  const needsAction = !building.actionDone && (building.hazardStage !== null || building.cityPending)
 
   const upload = async () => {
     setUploading(true)
@@ -65,21 +89,33 @@ export function BuildingPanel({ building, onClose, onUpdated }: BuildingPanelPro
       const { uploaded } = await uploadInspectionPhotos(building.id, photos)
       setUploadedCount(uploaded)
       setReadingLoading(true)
-      setReading(await getAiReading(building.id))
+      const r = await getAiReading(building.id)
+      setReading(r)
+      setJournal(r.summary)
+      setStage('1')
     } finally {
       setUploading(false)
       setReadingLoading(false)
     }
   }
 
-  const update = async () => {
-    setUpdating(true)
+  const confirm = async () => {
+    setSaving(true)
     try {
-      const r = await updateBuildingStatus(building.id, status)
-      setResult(r)
-      onUpdated(r)
+      const s: HazardStage = stage === 'none' ? null : (Number(stage) as 1 | 2 | 3)
+      onUpdated(await confirmInspection(building.id, s, journal))
+      setConfirmed(true)
     } finally {
-      setUpdating(false)
+      setSaving(false)
+    }
+  }
+
+  const act = async () => {
+    setActing(true)
+    try {
+      onUpdated(await completeAction(building.id, '1차 안전조치(출입구 봉쇄) 완료'))
+    } finally {
+      setActing(false)
     }
   }
 
@@ -87,7 +123,10 @@ export function BuildingPanel({ building, onClose, onUpdated }: BuildingPanelPro
     <div className="flex h-full flex-col">
       <header className="flex items-start justify-between gap-3 border-b px-5 py-4">
         <div>
-          <p className="text-xs text-muted-foreground">{building.id}</p>
+          <p className="text-xs text-muted-foreground">
+            {building.types.join('·')} · {building.units}호 · 시 등급 {building.grade} · {building.plan}
+            {building.plan === '상시관리' ? '' : ` (시행 '${building.planYear})`}
+          </p>
           <h2 className="mt-0.5 flex items-center gap-1.5 font-semibold text-primary">
             <MapPin className="size-4 text-brand" aria-hidden="true" />
             {building.address}
@@ -118,23 +157,35 @@ export function BuildingPanel({ building, onClose, onUpdated }: BuildingPanelPro
 
       <div className="flex-1 overflow-y-auto">
         <Section step={1} active={false} done>
-          <div className="grid grid-cols-3 gap-2">
-            <div className="rounded-lg bg-primary p-3 text-primary-foreground">
-              <p className="text-[11px] text-primary-foreground/70">SOS 점수</p>
-              <p className="mt-0.5 text-xl font-bold tabular-nums">{building.sosScore ?? '–'}</p>
+          <SosBadge building={building} />
+          <div className="mt-2 grid grid-cols-2 gap-2">
+            <div className="rounded-lg bg-muted p-3">
+              <p className="text-[11px] text-muted-foreground">다음 점검일</p>
+              <p className="mt-1 text-sm font-semibold">{building.sos.nextInspectionAt}</p>
             </div>
             <div className="rounded-lg bg-muted p-3">
-              <p className="text-[11px] text-muted-foreground">점검 상태</p>
-              <p className="mt-1 text-sm font-semibold">{INSPECTION_STATUS_LABEL[building.inspectionStatus]}</p>
-            </div>
-            <div className="rounded-lg bg-muted p-3">
-              <p className="text-[11px] text-muted-foreground">최근 점검</p>
-              <p className="mt-1 text-sm font-semibold">{building.lastInspectedAt ?? '없음'}</p>
+              <p className="text-[11px] text-muted-foreground">점검 주기 · 최근 확인</p>
+              <p className="mt-1 text-sm font-semibold">
+                {building.cycleMonths}개월 · {building.lastChecked}
+              </p>
             </div>
           </div>
-          <p className="mt-3 text-xs text-muted-foreground">
-            {building.builtYear}년 준공 · {building.structure}
-          </p>
+          <div className="mt-3">
+            <p className="text-xs font-semibold text-muted-foreground">피해 범위 {building.exposureCount}/3</p>
+            <ul className="mt-1.5 flex flex-wrap gap-1.5">
+              {(Object.keys(EXPOSURE_LABEL) as (keyof typeof EXPOSURE_LABEL)[]).map((k) => (
+                <li
+                  key={k}
+                  className={cn(
+                    'rounded-full px-2 py-0.5 text-[11px]',
+                    building.exposure[k] ? 'bg-primary/10 font-medium text-primary' : 'bg-muted text-muted-foreground line-through',
+                  )}
+                >
+                  {EXPOSURE_LABEL[k]}
+                </li>
+              ))}
+            </ul>
+          </div>
 
           <div className="mt-4">
             <p className="text-xs font-semibold text-muted-foreground">시민 제보 {reports?.length ?? building.reportCount}건</p>
@@ -143,7 +194,7 @@ export function BuildingPanel({ building, onClose, onUpdated }: BuildingPanelPro
             ) : reports && reports.length > 0 ? (
               <ul className="mt-2 flex flex-col gap-2">
                 {reports.map((r) => (
-                  <li key={r.id} className="rounded-lg border p-3">
+                  <li key={r.id} className="rounded-lg border border-yellow-300 bg-yellow-50 p-3">
                     <div className="flex items-center justify-between gap-2">
                       <Badge variant="secondary">{categoryLabel(r.category)}</Badge>
                       <span className="text-[11px] text-muted-foreground">{r.createdAt}</span>
@@ -158,6 +209,20 @@ export function BuildingPanel({ building, onClose, onUpdated }: BuildingPanelPro
             ) : (
               <p className="mt-2 rounded-lg bg-muted/60 p-3 text-sm text-muted-foreground">접수된 제보가 없습니다.</p>
             )}
+          </div>
+
+          <div className="mt-4">
+            <p className="text-xs font-semibold text-muted-foreground">기록</p>
+            <ol className="mt-2 flex flex-col gap-1.5 border-l-2 pl-3">
+              {building.timeline.map((t, i) => (
+                <li key={`${t.date}-${i}`} className="text-xs">
+                  <span className="font-medium">
+                    {t.date} · {t.type}
+                  </span>
+                  <span className="block text-muted-foreground">{t.note}</span>
+                </li>
+              ))}
+            </ol>
           </div>
         </Section>
 
@@ -179,7 +244,7 @@ export function BuildingPanel({ building, onClose, onUpdated }: BuildingPanelPro
           {readingLoading ? (
             <p className="flex items-center gap-2 text-sm text-muted-foreground" aria-live="polite">
               <LoaderCircle className="size-4 animate-spin" aria-hidden="true" />
-              백엔드에서 AI 판독 중입니다...
+              AI가 사진을 판독하고 있습니다...
             </p>
           ) : reading ? (
             <div className="rounded-lg border border-brand/20 bg-accent/50 p-3">
@@ -195,49 +260,63 @@ export function BuildingPanel({ building, onClose, onUpdated }: BuildingPanelPro
                   </div>
                 ))}
               </dl>
-              <p className="mt-3 text-[11px] text-muted-foreground">판독 결과는 참고용이며 담당자가 최종 확인합니다.</p>
+              <p className="mt-3 text-[11px] text-muted-foreground">AI 결과는 후보입니다. 위해 단계는 담당자가 확정합니다.</p>
             </div>
           ) : (
             <p className="text-sm text-muted-foreground">현장 사진을 업로드하면 판독 결과가 표시됩니다.</p>
           )}
         </Section>
 
-        <Section step={4} active={currentStep === 4} done={result !== null}>
-          {result ? (
-            <div className="rounded-lg bg-primary p-4 text-primary-foreground" aria-live="polite">
-              <p className="text-xs text-primary-foreground/70">갱신된 SOS 점수 (백엔드 산출)</p>
-              <p className="mt-1 text-3xl font-bold tabular-nums">{result.sosScore ?? '–'}</p>
-              <p className="mt-2 text-sm">상태: {INSPECTION_STATUS_LABEL[result.inspectionStatus]}</p>
-            </div>
-          ) : (
-            <div className="flex flex-col gap-3">
-              <div className="flex flex-col gap-2">
-                <Label htmlFor="status-select">점검 상태</Label>
-                <Select
-                  items={STATUS_ITEMS}
-                  value={status}
-                  onValueChange={(v) => v && setStatus(v as InspectionStatus)}
-                  disabled={!reading}
-                >
-                  <SelectTrigger id="status-select" className="h-10 w-full">
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {STATUS_ITEMS.map((s) => (
-                      <SelectItem key={s.value} value={s.value}>
-                        {s.label}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
-              <Button className="h-10 w-full" disabled={!reading || updating} onClick={update}>
-                {updating ? <LoaderCircle className="animate-spin" data-icon="inline-start" /> : <RefreshCw data-icon="inline-start" />}
-                {updating ? '갱신 요청 중...' : '상태 저장 및 점수 갱신 요청'}
+        <Section step={4} active={currentStep >= 4} done={building.actionDone}>
+          <div className="flex flex-col gap-3">
+            {!confirmed && (
+              <>
+                <div className="flex flex-col gap-2">
+                  <Label htmlFor="stage-select">위해 단계 (빈집법 제11조)</Label>
+                  <Select items={STAGE_ITEMS} value={stage} onValueChange={(v) => v && setStage(v)} disabled={!reading}>
+                    <SelectTrigger id="stage-select" className="h-10 w-full">
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {STAGE_ITEMS.map((s) => (
+                        <SelectItem key={s.value} value={s.value}>
+                          {s.label}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div className="flex flex-col gap-2">
+                  <Label htmlFor="journal">점검 일지</Label>
+                  <Textarea
+                    id="journal"
+                    value={journal}
+                    onChange={(e) => setJournal(e.target.value)}
+                    disabled={!reading}
+                    rows={3}
+                  />
+                </div>
+                <Button className="h-10 w-full" disabled={!reading || saving} onClick={confirm}>
+                  {saving ? <LoaderCircle className="animate-spin" data-icon="inline-start" /> : <ShieldCheck data-icon="inline-start" />}
+                  {saving ? '저장 중...' : '위해 단계 확정'}
+                </Button>
+              </>
+            )}
+
+            {confirmed && needsAction && (
+              <Button className="h-10 w-full" variant="secondary" disabled={acting} onClick={act}>
+                {acting ? <LoaderCircle className="animate-spin" data-icon="inline-start" /> : <Hammer data-icon="inline-start" />}
+                {acting ? '저장 중...' : '조치 완료 (봉쇄 완료 사진 등록)'}
               </Button>
-              <p className="text-[11px] text-muted-foreground">SOS 점수는 백엔드에서 재산출되어 반영됩니다.</p>
-            </div>
-          )}
+            )}
+
+            {confirmed && (
+              <p className="rounded-lg bg-muted p-3 text-sm" aria-live="polite">
+                지금 색: <b style={{ color: SOS_STYLE[building.sos.color].color }}>{SOS_STYLE[building.sos.color].label}</b> · 다음 점검{' '}
+                {building.sos.nextInspectionAt}
+              </p>
+            )}
+          </div>
         </Section>
       </div>
     </div>

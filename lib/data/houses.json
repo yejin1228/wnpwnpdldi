@@ -1,0 +1,4451 @@
+[
+ {
+  "id": "대부동동-128**",
+  "dong": "대부동동",
+  "jibun": "128**",
+  "lat": 37.246131,
+  "lng": 126.590518,
+  "units": 1,
+  "codes": [
+   "327734"
+  ],
+  "types": [
+   "단독"
+  ],
+  "grade": 3,
+  "plan": "철거",
+  "planYear": "26",
+  "exposure": {
+   "facility": false,
+   "cluster": false,
+   "density": false
+  },
+  "exposureCount": 0,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": "시판정",
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 3등급, 정비방식 철거"
+   }
+  ]
+ },
+ {
+  "id": "대부남동-899-1**",
+  "dong": "대부남동",
+  "jibun": "899-1**",
+  "lat": 37.211019,
+  "lng": 126.559593,
+  "units": 1,
+  "codes": [
+   "268148"
+  ],
+  "types": [
+   "단독"
+  ],
+  "grade": 3,
+  "plan": "철거",
+  "planYear": "26",
+  "exposure": {
+   "facility": false,
+   "cluster": false,
+   "density": false
+  },
+  "exposureCount": 0,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": "시판정",
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 3등급, 정비방식 철거"
+   }
+  ]
+ },
+ {
+  "id": "대부남동-89**",
+  "dong": "대부남동",
+  "jibun": "89**",
+  "lat": 37.209207,
+  "lng": 126.558655,
+  "units": 1,
+  "codes": [
+   "16588845"
+  ],
+  "types": [
+   "단독"
+  ],
+  "grade": 3,
+  "plan": "철거",
+  "planYear": "27",
+  "exposure": {
+   "facility": false,
+   "cluster": false,
+   "density": false
+  },
+  "exposureCount": 0,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": "시판정",
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 3등급, 정비방식 철거"
+   }
+  ]
+ },
+ {
+  "id": "대부북동-183-**",
+  "dong": "대부북동",
+  "jibun": "183-**",
+  "lat": 37.245591,
+  "lng": 126.5802,
+  "units": 1,
+  "codes": [
+   "16693599"
+  ],
+  "types": [
+   "그외"
+  ],
+  "grade": 3,
+  "plan": "철거",
+  "planYear": "27",
+  "exposure": {
+   "facility": true,
+   "cluster": false,
+   "density": false
+  },
+  "exposureCount": 1,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": "시판정",
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 3등급, 정비방식 철거"
+   }
+  ]
+ },
+ {
+  "id": "대부북동-293-**",
+  "dong": "대부북동",
+  "jibun": "293-**",
+  "lat": 37.245136,
+  "lng": 126.583174,
+  "units": 1,
+  "codes": [
+   "383882"
+  ],
+  "types": [
+   "단독"
+  ],
+  "grade": 3,
+  "plan": "철거",
+  "planYear": "28",
+  "exposure": {
+   "facility": false,
+   "cluster": false,
+   "density": false
+  },
+  "exposureCount": 0,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": "시판정",
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 3등급, 정비방식 철거"
+   }
+  ]
+ },
+ {
+  "id": "선감동-518-**",
+  "dong": "선감동",
+  "jibun": "518-**",
+  "lat": 37.223752,
+  "lng": 126.631413,
+  "units": 1,
+  "codes": [
+   "1281722"
+  ],
+  "types": [
+   "그외"
+  ],
+  "grade": 3,
+  "plan": "철거",
+  "planYear": "28",
+  "exposure": {
+   "facility": false,
+   "cluster": false,
+   "density": false
+  },
+  "exposureCount": 0,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": "시판정",
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 3등급, 정비방식 철거"
+   }
+  ]
+ },
+ {
+  "id": "선감동-582-**",
+  "dong": "선감동",
+  "jibun": "582-**",
+  "lat": 37.223126,
+  "lng": 126.633379,
+  "units": 1,
+  "codes": [
+   "372384"
+  ],
+  "types": [
+   "단독"
+  ],
+  "grade": 3,
+  "plan": "철거",
+  "planYear": "28",
+  "exposure": {
+   "facility": false,
+   "cluster": false,
+   "density": false
+  },
+  "exposureCount": 0,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": "시판정",
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 3등급, 정비방식 철거"
+   }
+  ]
+ },
+ {
+  "id": "대부동동-66-**",
+  "dong": "대부동동",
+  "jibun": "66-**",
+  "lat": 37.240925,
+  "lng": 126.621164,
+  "units": 1,
+  "codes": [
+   "1281706"
+  ],
+  "types": [
+   "그외"
+  ],
+  "grade": 3,
+  "plan": "철거",
+  "planYear": "29",
+  "exposure": {
+   "facility": false,
+   "cluster": false,
+   "density": false
+  },
+  "exposureCount": 0,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": "시판정",
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 3등급, 정비방식 철거"
+   }
+  ]
+ },
+ {
+  "id": "대부동동-74-2**",
+  "dong": "대부동동",
+  "jibun": "74-2**",
+  "lat": 37.239051,
+  "lng": 126.622441,
+  "units": 1,
+  "codes": [
+   "1281721"
+  ],
+  "types": [
+   "단독"
+  ],
+  "grade": 3,
+  "plan": "철거",
+  "planYear": "29",
+  "exposure": {
+   "facility": false,
+   "cluster": false,
+   "density": false
+  },
+  "exposureCount": 0,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": "시판정",
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 3등급, 정비방식 철거"
+   }
+  ]
+ },
+ {
+  "id": "대부북동-131**",
+  "dong": "대부북동",
+  "jibun": "131**",
+  "lat": 37.260464,
+  "lng": 126.571895,
+  "units": 1,
+  "codes": [
+   "1281687"
+  ],
+  "types": [
+   "단독"
+  ],
+  "grade": 3,
+  "plan": "철거",
+  "planYear": "29",
+  "exposure": {
+   "facility": false,
+   "cluster": false,
+   "density": false
+  },
+  "exposureCount": 0,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": "시판정",
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 3등급, 정비방식 철거"
+   }
+  ]
+ },
+ {
+  "id": "대부동동-42**",
+  "dong": "대부동동",
+  "jibun": "42**",
+  "lat": 37.249643,
+  "lng": 126.610441,
+  "units": 1,
+  "codes": [
+   "1281644"
+  ],
+  "types": [
+   "단독"
+  ],
+  "grade": 3,
+  "plan": "철거",
+  "planYear": "30",
+  "exposure": {
+   "facility": false,
+   "cluster": false,
+   "density": false
+  },
+  "exposureCount": 0,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": "시판정",
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 3등급, 정비방식 철거"
+   }
+  ]
+ },
+ {
+  "id": "선부동-1088-2**",
+  "dong": "선부동",
+  "jibun": "1088-2**",
+  "lat": 37.342602,
+  "lng": 126.816022,
+  "units": 1,
+  "codes": [
+   "16588826"
+  ],
+  "types": [
+   "단독"
+  ],
+  "grade": 1,
+  "plan": "개보수",
+  "planYear": "29",
+  "exposure": {
+   "facility": false,
+   "cluster": false,
+   "density": false
+  },
+  "exposureCount": 0,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 개보수"
+   }
+  ]
+ },
+ {
+  "id": "이동-578-**",
+  "dong": "이동",
+  "jibun": "578-**",
+  "lat": 37.304961,
+  "lng": 126.860179,
+  "units": 1,
+  "codes": [
+   "16588943"
+  ],
+  "types": [
+   "단독"
+  ],
+  "grade": 2,
+  "plan": "개보수",
+  "planYear": "27",
+  "exposure": {
+   "facility": true,
+   "cluster": false,
+   "density": true
+  },
+  "exposureCount": 2,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 2등급, 정비방식 개보수"
+   }
+  ]
+ },
+ {
+  "id": "일동-558-1**",
+  "dong": "일동",
+  "jibun": "558-1**",
+  "lat": 37.315906,
+  "lng": 126.860915,
+  "units": 1,
+  "codes": [
+   "16588905"
+  ],
+  "types": [
+   "단독"
+  ],
+  "grade": 1,
+  "plan": "개보수",
+  "planYear": "30",
+  "exposure": {
+   "facility": true,
+   "cluster": false,
+   "density": true
+  },
+  "exposureCount": 2,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 개보수"
+   }
+  ]
+ },
+ {
+  "id": "선부동-1104-1**",
+  "dong": "선부동",
+  "jibun": "1104-1**",
+  "lat": 37.346819,
+  "lng": 126.817392,
+  "units": 3,
+  "codes": [
+   "16588672",
+   "16588832",
+   "16588833"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "안전조치",
+  "planYear": "29",
+  "exposure": {
+   "facility": true,
+   "cluster": true,
+   "density": true
+  },
+  "exposureCount": 3,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": "시판정",
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 안전조치"
+   }
+  ]
+ },
+ {
+  "id": "선부동-1089-1**",
+  "dong": "선부동",
+  "jibun": "1089-1**",
+  "lat": 37.342855,
+  "lng": 126.817335,
+  "units": 4,
+  "codes": [
+   "16588670",
+   "16588827",
+   "16588828",
+   "16588671"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "안전조치",
+  "planYear": "29",
+  "exposure": {
+   "facility": false,
+   "cluster": true,
+   "density": true
+  },
+  "exposureCount": 2,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": "시판정",
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 안전조치"
+   }
+  ]
+ },
+ {
+  "id": "대부북동-2**",
+  "dong": "대부북동",
+  "jibun": "2**",
+  "lat": 37.258286,
+  "lng": 126.586519,
+  "units": 1,
+  "codes": [
+   "16588843"
+  ],
+  "types": [
+   "단독"
+  ],
+  "grade": 2,
+  "plan": "안전조치",
+  "planYear": "27",
+  "exposure": {
+   "facility": true,
+   "cluster": false,
+   "density": false
+  },
+  "exposureCount": 1,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": "시판정",
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 2등급, 정비방식 안전조치"
+   }
+  ]
+ },
+ {
+  "id": "양상동-243-**",
+  "dong": "양상동",
+  "jibun": "243-**",
+  "lat": 37.344822,
+  "lng": 126.851185,
+  "units": 1,
+  "codes": [
+   "16588394"
+  ],
+  "types": [
+   "단독"
+  ],
+  "grade": 2,
+  "plan": "안전조치",
+  "planYear": "27",
+  "exposure": {
+   "facility": false,
+   "cluster": false,
+   "density": false
+  },
+  "exposureCount": 0,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": "시판정",
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 2등급, 정비방식 안전조치"
+   }
+  ]
+ },
+ {
+  "id": "부곡동-66-1**",
+  "dong": "부곡동",
+  "jibun": "66-1**",
+  "lat": 37.341558,
+  "lng": 126.869575,
+  "units": 1,
+  "codes": [
+   "16588395"
+  ],
+  "types": [
+   "단독"
+  ],
+  "grade": 2,
+  "plan": "안전조치",
+  "planYear": "27",
+  "exposure": {
+   "facility": false,
+   "cluster": false,
+   "density": false
+  },
+  "exposureCount": 0,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": "시판정",
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 2등급, 정비방식 안전조치"
+   }
+  ]
+ },
+ {
+  "id": "본오동-678-**",
+  "dong": "본오동",
+  "jibun": "678-**",
+  "lat": 37.286014,
+  "lng": 126.864521,
+  "units": 1,
+  "codes": [
+   "16589003"
+  ],
+  "types": [
+   "단독"
+  ],
+  "grade": 2,
+  "plan": "안전조치",
+  "planYear": "27",
+  "exposure": {
+   "facility": false,
+   "cluster": false,
+   "density": true
+  },
+  "exposureCount": 1,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": "시판정",
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 2등급, 정비방식 안전조치"
+   }
+  ]
+ },
+ {
+  "id": "대부동동-136**",
+  "dong": "대부동동",
+  "jibun": "136**",
+  "lat": 37.244865,
+  "lng": 126.592206,
+  "units": 1,
+  "codes": [
+   "16588677"
+  ],
+  "types": [
+   "단독"
+  ],
+  "grade": 2,
+  "plan": "안전조치",
+  "planYear": "27",
+  "exposure": {
+   "facility": false,
+   "cluster": false,
+   "density": false
+  },
+  "exposureCount": 0,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": "시판정",
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 2등급, 정비방식 안전조치"
+   }
+  ]
+ },
+ {
+  "id": "부곡동-717-**",
+  "dong": "부곡동",
+  "jibun": "717-**",
+  "lat": 37.336678,
+  "lng": 126.856991,
+  "units": 3,
+  "codes": [
+   "16588692",
+   "16588694",
+   "16588693"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "안전조치",
+  "planYear": "28",
+  "exposure": {
+   "facility": true,
+   "cluster": true,
+   "density": false
+  },
+  "exposureCount": 2,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": "시판정",
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 안전조치"
+   }
+  ]
+ },
+ {
+  "id": "팔곡이동-432-**",
+  "dong": "팔곡이동",
+  "jibun": "432-**",
+  "lat": 37.295299,
+  "lng": 126.884575,
+  "units": 1,
+  "codes": [
+   "16588387"
+  ],
+  "types": [
+   "단독"
+  ],
+  "grade": 1,
+  "plan": "안전조치",
+  "planYear": "28",
+  "exposure": {
+   "facility": true,
+   "cluster": true,
+   "density": false
+  },
+  "exposureCount": 2,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": "시판정",
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 안전조치"
+   }
+  ]
+ },
+ {
+  "id": "팔곡일동-256-1**",
+  "dong": "팔곡일동",
+  "jibun": "256-1**",
+  "lat": 37.306434,
+  "lng": 126.898865,
+  "units": 3,
+  "codes": [
+   "16588720",
+   "340380",
+   "16588447"
+  ],
+  "types": [
+   "다세대",
+   "단독"
+  ],
+  "grade": 2,
+  "plan": "안전조치",
+  "planYear": "28",
+  "exposure": {
+   "facility": true,
+   "cluster": true,
+   "density": false
+  },
+  "exposureCount": 2,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": "시판정",
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 2등급, 정비방식 안전조치"
+   }
+  ]
+ },
+ {
+  "id": "와동-713-1**",
+  "dong": "와동",
+  "jibun": "713-1**",
+  "lat": 37.3372,
+  "lng": 126.828338,
+  "units": 1,
+  "codes": [
+   "238825"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 2,
+  "plan": "안전조치",
+  "planYear": "30",
+  "exposure": {
+   "facility": true,
+   "cluster": false,
+   "density": false
+  },
+  "exposureCount": 1,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": "시판정",
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 2등급, 정비방식 안전조치"
+   }
+  ]
+ },
+ {
+  "id": "대부남동-18-1**",
+  "dong": "대부남동",
+  "jibun": "18-1**",
+  "lat": 37.210141,
+  "lng": 126.612749,
+  "units": 1,
+  "codes": [
+   "1281621"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 2,
+  "plan": "안전조치",
+  "planYear": "30",
+  "exposure": {
+   "facility": false,
+   "cluster": false,
+   "density": false
+  },
+  "exposureCount": 0,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": "시판정",
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 2등급, 정비방식 안전조치"
+   }
+  ]
+ },
+ {
+  "id": "대부남동-1020-1**",
+  "dong": "대부남동",
+  "jibun": "1020-1**",
+  "lat": 37.217811,
+  "lng": 126.564686,
+  "units": 1,
+  "codes": [
+   "232180"
+  ],
+  "types": [
+   "단독"
+  ],
+  "grade": 2,
+  "plan": "안전조치",
+  "planYear": "30",
+  "exposure": {
+   "facility": false,
+   "cluster": true,
+   "density": false
+  },
+  "exposureCount": 1,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": "시판정",
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 2등급, 정비방식 안전조치"
+   }
+  ]
+ },
+ {
+  "id": "고잔동-577-**",
+  "dong": "고잔동",
+  "jibun": "577-**",
+  "lat": 37.323261,
+  "lng": 126.825268,
+  "units": 1,
+  "codes": [
+   "16588755"
+  ],
+  "types": [
+   "연립"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": true,
+   "cluster": false,
+   "density": false
+  },
+  "exposureCount": 1,
+  "cycleMonths": 12,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "고잔동-580-**",
+  "dong": "고잔동",
+  "jibun": "580-**",
+  "lat": 37.321863,
+  "lng": 126.825215,
+  "units": 1,
+  "codes": [
+   "16588756"
+  ],
+  "types": [
+   "연립"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": false,
+   "cluster": false,
+   "density": false
+  },
+  "exposureCount": 0,
+  "cycleMonths": 12,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "고잔동-66**",
+  "dong": "고잔동",
+  "jibun": "66**",
+  "lat": 37.324544,
+  "lng": 126.820691,
+  "units": 1,
+  "codes": [
+   "16588761"
+  ],
+  "types": [
+   "연립"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": true,
+   "cluster": false,
+   "density": false
+  },
+  "exposureCount": 1,
+  "cycleMonths": 12,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "고잔동-57**",
+  "dong": "고잔동",
+  "jibun": "57**",
+  "lat": 37.324887,
+  "lng": 126.825771,
+  "units": 2,
+  "codes": [
+   "16588454",
+   "16588754"
+  ],
+  "types": [
+   "연립"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": true,
+   "cluster": true,
+   "density": false
+  },
+  "exposureCount": 2,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "선부동-1119-1**",
+  "dong": "선부동",
+  "jibun": "1119-1**",
+  "lat": 37.345245,
+  "lng": 126.813575,
+  "units": 1,
+  "codes": [
+   "16588839"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": true,
+   "cluster": false,
+   "density": true
+  },
+  "exposureCount": 2,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "선부동-1126-**",
+  "dong": "선부동",
+  "jibun": "1126-**",
+  "lat": 37.347955,
+  "lng": 126.81135,
+  "units": 2,
+  "codes": [
+   "16588676",
+   "16588841"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": false,
+   "cluster": true,
+   "density": true
+  },
+  "exposureCount": 2,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "선부동-1099-1**",
+  "dong": "선부동",
+  "jibun": "1099-1**",
+  "lat": 37.345868,
+  "lng": 126.816418,
+  "units": 1,
+  "codes": [
+   "16588831"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": true,
+   "cluster": false,
+   "density": true
+  },
+  "exposureCount": 2,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "선부동-1111-**",
+  "dong": "선부동",
+  "jibun": "1111-**",
+  "lat": 37.348234,
+  "lng": 126.813825,
+  "units": 3,
+  "codes": [
+   "16588837",
+   "16588674",
+   "363338"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": false,
+   "cluster": true,
+   "density": false
+  },
+  "exposureCount": 1,
+  "cycleMonths": 12,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "선부동-1094-**",
+  "dong": "선부동",
+  "jibun": "1094-**",
+  "lat": 37.344377,
+  "lng": 126.816888,
+  "units": 1,
+  "codes": [
+   "16588829"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": true,
+   "cluster": false,
+   "density": true
+  },
+  "exposureCount": 2,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "와동-102-**",
+  "dong": "와동",
+  "jibun": "102-**",
+  "lat": 37.342129,
+  "lng": 126.828785,
+  "units": 1,
+  "codes": [
+   "16588458"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": true,
+   "cluster": true,
+   "density": true
+  },
+  "exposureCount": 3,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "와동-696-1**",
+  "dong": "와동",
+  "jibun": "696-1**",
+  "lat": 37.333382,
+  "lng": 126.829096,
+  "units": 2,
+  "codes": [
+   "16588795",
+   "16588765"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": false,
+   "cluster": true,
+   "density": true
+  },
+  "exposureCount": 2,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "와동-737-1**",
+  "dong": "와동",
+  "jibun": "737-1**",
+  "lat": 37.334826,
+  "lng": 126.823315,
+  "units": 1,
+  "codes": [
+   "16588775"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": true,
+   "cluster": true,
+   "density": true
+  },
+  "exposureCount": 3,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "와동-812-2**",
+  "dong": "와동",
+  "jibun": "812-2**",
+  "lat": 37.341887,
+  "lng": 126.82089,
+  "units": 1,
+  "codes": [
+   "16588798"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": true,
+   "cluster": false,
+   "density": true
+  },
+  "exposureCount": 2,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "와동-78**",
+  "dong": "와동",
+  "jibun": "78**",
+  "lat": 37.347302,
+  "lng": 126.822252,
+  "units": 1,
+  "codes": [
+   "16588786"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": false,
+   "cluster": false,
+   "density": true
+  },
+  "exposureCount": 1,
+  "cycleMonths": 12,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "와동-822-**",
+  "dong": "와동",
+  "jibun": "822-**",
+  "lat": 37.33643,
+  "lng": 126.817823,
+  "units": 1,
+  "codes": [
+   "16588666"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": false,
+   "cluster": false,
+   "density": false
+  },
+  "exposureCount": 0,
+  "cycleMonths": 12,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "와동-100-**",
+  "dong": "와동",
+  "jibun": "100-**",
+  "lat": 37.341526,
+  "lng": 126.828154,
+  "units": 1,
+  "codes": [
+   "16588763"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": true,
+   "cluster": true,
+   "density": true
+  },
+  "exposureCount": 3,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "와동-704-**",
+  "dong": "와동",
+  "jibun": "704-**",
+  "lat": 37.336171,
+  "lng": 126.831754,
+  "units": 1,
+  "codes": [
+   "16588766"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": true,
+   "cluster": false,
+   "density": false
+  },
+  "exposureCount": 1,
+  "cycleMonths": 12,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "와동-744-**",
+  "dong": "와동",
+  "jibun": "744-**",
+  "lat": 37.337836,
+  "lng": 126.823104,
+  "units": 1,
+  "codes": [
+   "16588781"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": false,
+   "cluster": false,
+   "density": true
+  },
+  "exposureCount": 1,
+  "cycleMonths": 12,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "와동-788-**",
+  "dong": "와동",
+  "jibun": "788-**",
+  "lat": 37.347773,
+  "lng": 126.821147,
+  "units": 2,
+  "codes": [
+   "16588787",
+   "16588788"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": false,
+   "cluster": true,
+   "density": true
+  },
+  "exposureCount": 2,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "와동-794-1**",
+  "dong": "와동",
+  "jibun": "794-1**",
+  "lat": 37.345929,
+  "lng": 126.820935,
+  "units": 1,
+  "codes": [
+   "16588790"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": true,
+   "cluster": false,
+   "density": true
+  },
+  "exposureCount": 2,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "와동-801-1**",
+  "dong": "와동",
+  "jibun": "801-1**",
+  "lat": 37.344372,
+  "lng": 126.819074,
+  "units": 1,
+  "codes": [
+   "16588792"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": true,
+   "cluster": false,
+   "density": true
+  },
+  "exposureCount": 2,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "원곡동-801-1**",
+  "dong": "원곡동",
+  "jibun": "801-1**",
+  "lat": 37.329795,
+  "lng": 126.793133,
+  "units": 1,
+  "codes": [
+   "16588804"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": false,
+   "cluster": false,
+   "density": true
+  },
+  "exposureCount": 1,
+  "cycleMonths": 12,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "건건동-890-2**",
+  "dong": "건건동",
+  "jibun": "890-2**",
+  "lat": 37.301243,
+  "lng": 126.905782,
+  "units": 1,
+  "codes": [
+   "16588734"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": true,
+   "cluster": false,
+   "density": false
+  },
+  "exposureCount": 1,
+  "cycleMonths": 12,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "본오동-716-1**",
+  "dong": "본오동",
+  "jibun": "716-1**",
+  "lat": 37.287473,
+  "lng": 126.867278,
+  "units": 1,
+  "codes": [
+   "16589005"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": true,
+   "cluster": true,
+   "density": true
+  },
+  "exposureCount": 3,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "본오동-980-**",
+  "dong": "본오동",
+  "jibun": "980-**",
+  "lat": 37.282937,
+  "lng": 126.859169,
+  "units": 1,
+  "codes": [
+   "16588425"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": true,
+   "cluster": false,
+   "density": false
+  },
+  "exposureCount": 1,
+  "cycleMonths": 12,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "본오동-719-**",
+  "dong": "본오동",
+  "jibun": "719-**",
+  "lat": 37.287932,
+  "lng": 126.866632,
+  "units": 1,
+  "codes": [
+   "16589007"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": false,
+   "cluster": true,
+   "density": true
+  },
+  "exposureCount": 2,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "본오동-85**",
+  "dong": "본오동",
+  "jibun": "85**",
+  "lat": 37.291856,
+  "lng": 126.867703,
+  "units": 1,
+  "codes": [
+   "16589042"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": true,
+   "cluster": false,
+   "density": true
+  },
+  "exposureCount": 2,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "본오동-868-**",
+  "dong": "본오동",
+  "jibun": "868-**",
+  "lat": 37.292301,
+  "lng": 126.863474,
+  "units": 1,
+  "codes": [
+   "16589045"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": true,
+   "cluster": false,
+   "density": true
+  },
+  "exposureCount": 2,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "본오동-832-**",
+  "dong": "본오동",
+  "jibun": "832-**",
+  "lat": 37.292453,
+  "lng": 126.871477,
+  "units": 1,
+  "codes": [
+   "16589039"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": true,
+   "cluster": false,
+   "density": true
+  },
+  "exposureCount": 2,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "본오동-724-**",
+  "dong": "본오동",
+  "jibun": "724-**",
+  "lat": 37.289587,
+  "lng": 126.870723,
+  "units": 1,
+  "codes": [
+   "16589008"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": false,
+   "cluster": false,
+   "density": false
+  },
+  "exposureCount": 0,
+  "cycleMonths": 12,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "본오동-808-1**",
+  "dong": "본오동",
+  "jibun": "808-1**",
+  "lat": 37.29791,
+  "lng": 126.868674,
+  "units": 1,
+  "codes": [
+   "16589036"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": true,
+   "cluster": false,
+   "density": true
+  },
+  "exposureCount": 2,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "본오동-962-1**",
+  "dong": "본오동",
+  "jibun": "962-1**",
+  "lat": 37.286097,
+  "lng": 126.859315,
+  "units": 1,
+  "codes": [
+   "16589024"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": true,
+   "cluster": false,
+   "density": true
+  },
+  "exposureCount": 2,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "본오동-91**",
+  "dong": "본오동",
+  "jibun": "91**",
+  "lat": 37.290309,
+  "lng": 126.864923,
+  "units": 1,
+  "codes": [
+   "16588419"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": false,
+   "cluster": false,
+   "density": true
+  },
+  "exposureCount": 1,
+  "cycleMonths": 12,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "본오동-966-1**",
+  "dong": "본오동",
+  "jibun": "966-1**",
+  "lat": 37.284366,
+  "lng": 126.859145,
+  "units": 1,
+  "codes": [
+   "16589026"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": false,
+   "cluster": true,
+   "density": true
+  },
+  "exposureCount": 2,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "본오동-966-**",
+  "dong": "본오동",
+  "jibun": "966-**",
+  "lat": 37.284437,
+  "lng": 126.859471,
+  "units": 1,
+  "codes": [
+   "16589025"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": false,
+   "cluster": true,
+   "density": true
+  },
+  "exposureCount": 2,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "부곡동-552-1**",
+  "dong": "부곡동",
+  "jibun": "552-1**",
+  "lat": 37.330301,
+  "lng": 126.867951,
+  "units": 1,
+  "codes": [
+   "16588399"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": true,
+   "cluster": false,
+   "density": false
+  },
+  "exposureCount": 1,
+  "cycleMonths": 12,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "부곡동-695-**",
+  "dong": "부곡동",
+  "jibun": "695-**",
+  "lat": 37.322827,
+  "lng": 126.858525,
+  "units": 1,
+  "codes": [
+   "16588686"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": true,
+   "cluster": false,
+   "density": false
+  },
+  "exposureCount": 1,
+  "cycleMonths": 12,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "부곡동-738-**",
+  "dong": "부곡동",
+  "jibun": "738-**",
+  "lat": 37.333183,
+  "lng": 126.857124,
+  "units": 1,
+  "codes": [
+   "16588698"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": false,
+   "cluster": false,
+   "density": false
+  },
+  "exposureCount": 0,
+  "cycleMonths": 12,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "부곡동-718-**",
+  "dong": "부곡동",
+  "jibun": "718-**",
+  "lat": 37.336132,
+  "lng": 126.857737,
+  "units": 1,
+  "codes": [
+   "16588695"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": true,
+   "cluster": true,
+   "density": false
+  },
+  "exposureCount": 2,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "부곡동-537-**",
+  "dong": "부곡동",
+  "jibun": "537-**",
+  "lat": 37.332649,
+  "lng": 126.865519,
+  "units": 1,
+  "codes": [
+   "16588428"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": false,
+   "cluster": true,
+   "density": true
+  },
+  "exposureCount": 2,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "부곡동-63**",
+  "dong": "부곡동",
+  "jibun": "63**",
+  "lat": 37.33501,
+  "lng": 126.867103,
+  "units": 1,
+  "codes": [
+   "16588405"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": false,
+   "cluster": false,
+   "density": true
+  },
+  "exposureCount": 1,
+  "cycleMonths": 12,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "부곡동-677-1**",
+  "dong": "부곡동",
+  "jibun": "677-1**",
+  "lat": 37.330276,
+  "lng": 126.860408,
+  "units": 1,
+  "codes": [
+   "16588682"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": false,
+   "cluster": false,
+   "density": true
+  },
+  "exposureCount": 1,
+  "cycleMonths": 12,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "부곡동-714-**",
+  "dong": "부곡동",
+  "jibun": "714-**",
+  "lat": 37.336979,
+  "lng": 126.858268,
+  "units": 1,
+  "codes": [
+   "16588687"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": true,
+   "cluster": true,
+   "density": false
+  },
+  "exposureCount": 2,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "부곡동-715-**",
+  "dong": "부곡동",
+  "jibun": "715-**",
+  "lat": 37.336109,
+  "lng": 126.858167,
+  "units": 1,
+  "codes": [
+   "16588690"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": true,
+   "cluster": true,
+   "density": true
+  },
+  "exposureCount": 3,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "부곡동-640-**",
+  "dong": "부곡동",
+  "jibun": "640-**",
+  "lat": 37.333285,
+  "lng": 126.865989,
+  "units": 1,
+  "codes": [
+   "16588410"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": true,
+   "cluster": true,
+   "density": true
+  },
+  "exposureCount": 3,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "부곡동-642-**",
+  "dong": "부곡동",
+  "jibun": "642-**",
+  "lat": 37.333609,
+  "lng": 126.864755,
+  "units": 1,
+  "codes": [
+   "16588434"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": false,
+   "cluster": false,
+   "density": true
+  },
+  "exposureCount": 1,
+  "cycleMonths": 12,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "부곡동-66**",
+  "dong": "부곡동",
+  "jibun": "66**",
+  "lat": 37.333407,
+  "lng": 126.862801,
+  "units": 1,
+  "codes": [
+   "16588415"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": true,
+   "cluster": false,
+   "density": false
+  },
+  "exposureCount": 1,
+  "cycleMonths": 12,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "부곡동-666-1**",
+  "dong": "부곡동",
+  "jibun": "666-1**",
+  "lat": 37.332432,
+  "lng": 126.862631,
+  "units": 1,
+  "codes": [
+   "16588416"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": false,
+   "cluster": false,
+   "density": true
+  },
+  "exposureCount": 1,
+  "cycleMonths": 12,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "사동-1324-1**",
+  "dong": "사동",
+  "jibun": "1324-1**",
+  "lat": 37.296104,
+  "lng": 126.854448,
+  "units": 1,
+  "codes": [
+   "16588967"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": false,
+   "cluster": false,
+   "density": true
+  },
+  "exposureCount": 1,
+  "cycleMonths": 12,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "사동-1425-1**",
+  "dong": "사동",
+  "jibun": "1425-1**",
+  "lat": 37.284693,
+  "lng": 126.846271,
+  "units": 1,
+  "codes": [
+   "16588991"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": false,
+   "cluster": true,
+   "density": true
+  },
+  "exposureCount": 2,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "사동-1383-**",
+  "dong": "사동",
+  "jibun": "1383-**",
+  "lat": 37.285493,
+  "lng": 126.846016,
+  "units": 1,
+  "codes": [
+   "16588975"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": false,
+   "cluster": true,
+   "density": true
+  },
+  "exposureCount": 2,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "사동-1336-**",
+  "dong": "사동",
+  "jibun": "1336-**",
+  "lat": 37.295067,
+  "lng": 126.857057,
+  "units": 1,
+  "codes": [
+   "16588970"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": true,
+   "cluster": false,
+   "density": true
+  },
+  "exposureCount": 2,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "사동-1421-**",
+  "dong": "사동",
+  "jibun": "1421-**",
+  "lat": 37.284347,
+  "lng": 126.849136,
+  "units": 1,
+  "codes": [
+   "16588872"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": false,
+   "cluster": false,
+   "density": true
+  },
+  "exposureCount": 1,
+  "cycleMonths": 12,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "사사동-404-1**",
+  "dong": "사사동",
+  "jibun": "404-1**",
+  "lat": 37.296375,
+  "lng": 126.918359,
+  "units": 1,
+  "codes": [
+   "16588448"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": true,
+   "cluster": true,
+   "density": false
+  },
+  "exposureCount": 2,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "수암동-482-**",
+  "dong": "수암동",
+  "jibun": "482-**",
+  "lat": 37.364305,
+  "lng": 126.88215,
+  "units": 3,
+  "codes": [
+   "16588743",
+   "16588744",
+   "16588449"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": false,
+   "cluster": true,
+   "density": false
+  },
+  "exposureCount": 1,
+  "cycleMonths": 12,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "수암동-499-**",
+  "dong": "수암동",
+  "jibun": "499-**",
+  "lat": 37.362875,
+  "lng": 126.877875,
+  "units": 1,
+  "codes": [
+   "16588450"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": true,
+   "cluster": false,
+   "density": false
+  },
+  "exposureCount": 1,
+  "cycleMonths": 12,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "월피동-44**",
+  "dong": "월피동",
+  "jibun": "44**",
+  "lat": 37.330649,
+  "lng": 126.848146,
+  "units": 1,
+  "codes": [
+   "16588702"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": false,
+   "cluster": false,
+   "density": false
+  },
+  "exposureCount": 0,
+  "cycleMonths": 12,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "월피동-503-**",
+  "dong": "월피동",
+  "jibun": "503-**",
+  "lat": 37.33535,
+  "lng": 126.842004,
+  "units": 1,
+  "codes": [
+   "16588713"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": true,
+   "cluster": false,
+   "density": true
+  },
+  "exposureCount": 2,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "월피동-456-**",
+  "dong": "월피동",
+  "jibun": "456-**",
+  "lat": 37.334654,
+  "lng": 126.84992,
+  "units": 1,
+  "codes": [
+   "16588704"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": true,
+   "cluster": true,
+   "density": true
+  },
+  "exposureCount": 3,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "월피동-495-**",
+  "dong": "월피동",
+  "jibun": "495-**",
+  "lat": 37.336969,
+  "lng": 126.845029,
+  "units": 1,
+  "codes": [
+   "16588442"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": false,
+   "cluster": false,
+   "density": false
+  },
+  "exposureCount": 0,
+  "cycleMonths": 12,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "월피동-455-**",
+  "dong": "월피동",
+  "jibun": "455-**",
+  "lat": 37.33397,
+  "lng": 126.849223,
+  "units": 1,
+  "codes": [
+   "16588703"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": false,
+   "cluster": true,
+   "density": true
+  },
+  "exposureCount": 2,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "이동-591-**",
+  "dong": "이동",
+  "jibun": "591-**",
+  "lat": 37.307663,
+  "lng": 126.857701,
+  "units": 1,
+  "codes": [
+   "16588947"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": false,
+   "cluster": false,
+   "density": false
+  },
+  "exposureCount": 0,
+  "cycleMonths": 12,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "이동-533-**",
+  "dong": "이동",
+  "jibun": "533-**",
+  "lat": 37.312562,
+  "lng": 126.858886,
+  "units": 1,
+  "codes": [
+   "16588934"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": true,
+   "cluster": false,
+   "density": true
+  },
+  "exposureCount": 2,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "일동-536-**",
+  "dong": "일동",
+  "jibun": "536-**",
+  "lat": 37.317141,
+  "lng": 126.864519,
+  "units": 2,
+  "codes": [
+   "16588900",
+   "294630"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": false,
+   "cluster": true,
+   "density": true
+  },
+  "exposureCount": 2,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "일동-569-**",
+  "dong": "일동",
+  "jibun": "569-**",
+  "lat": 37.314308,
+  "lng": 126.861837,
+  "units": 1,
+  "codes": [
+   "16588909"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": true,
+   "cluster": false,
+   "density": true
+  },
+  "exposureCount": 2,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "일동-614-**",
+  "dong": "일동",
+  "jibun": "614-**",
+  "lat": 37.309039,
+  "lng": 126.87132,
+  "units": 1,
+  "codes": [
+   "16588920"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": true,
+   "cluster": true,
+   "density": true
+  },
+  "exposureCount": 3,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "일동-563-1**",
+  "dong": "일동",
+  "jibun": "563-1**",
+  "lat": 37.316711,
+  "lng": 126.862391,
+  "units": 1,
+  "codes": [
+   "16588849"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": false,
+   "cluster": true,
+   "density": true
+  },
+  "exposureCount": 2,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "일동-593-**",
+  "dong": "일동",
+  "jibun": "593-**",
+  "lat": 37.315127,
+  "lng": 126.866204,
+  "units": 1,
+  "codes": [
+   "16588853"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": true,
+   "cluster": false,
+   "density": true
+  },
+  "exposureCount": 2,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "일동-613-1**",
+  "dong": "일동",
+  "jibun": "613-1**",
+  "lat": 37.309286,
+  "lng": 126.871421,
+  "units": 1,
+  "codes": [
+   "16588919"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": true,
+   "cluster": true,
+   "density": true
+  },
+  "exposureCount": 3,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "일동-542-**",
+  "dong": "일동",
+  "jibun": "542-**",
+  "lat": 37.317649,
+  "lng": 126.862408,
+  "units": 1,
+  "codes": [
+   "16588848"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": false,
+   "cluster": false,
+   "density": true
+  },
+  "exposureCount": 1,
+  "cycleMonths": 12,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "일동-583-**",
+  "dong": "일동",
+  "jibun": "583-**",
+  "lat": 37.313974,
+  "lng": 126.864179,
+  "units": 1,
+  "codes": [
+   "16588910"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": true,
+   "cluster": true,
+   "density": true
+  },
+  "exposureCount": 3,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "일동-665-**",
+  "dong": "일동",
+  "jibun": "665-**",
+  "lat": 37.304519,
+  "lng": 126.865257,
+  "units": 2,
+  "codes": [
+   "16588927",
+   "16588926"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": false,
+   "cluster": true,
+   "density": true
+  },
+  "exposureCount": 2,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "일동-541-**",
+  "dong": "일동",
+  "jibun": "541-**",
+  "lat": 37.31706,
+  "lng": 126.863302,
+  "units": 1,
+  "codes": [
+   "16588902"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": true,
+   "cluster": true,
+   "density": true
+  },
+  "exposureCount": 3,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "일동-584-**",
+  "dong": "일동",
+  "jibun": "584-**",
+  "lat": 37.314261,
+  "lng": 126.864466,
+  "units": 1,
+  "codes": [
+   "16588911"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": true,
+   "cluster": true,
+   "density": true
+  },
+  "exposureCount": 3,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "일동-97-**",
+  "dong": "일동",
+  "jibun": "97-**",
+  "lat": 37.316077,
+  "lng": 126.872107,
+  "units": 1,
+  "codes": [
+   "16588888"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": true,
+   "cluster": false,
+   "density": true
+  },
+  "exposureCount": 2,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "장상동-18-1**",
+  "dong": "장상동",
+  "jibun": "18-1**",
+  "lat": 37.359347,
+  "lng": 126.873528,
+  "units": 1,
+  "codes": [
+   "16588745"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": true,
+   "cluster": true,
+   "density": false
+  },
+  "exposureCount": 2,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "장상동-22-**",
+  "dong": "장상동",
+  "jibun": "22-**",
+  "lat": 37.359686,
+  "lng": 126.872492,
+  "units": 2,
+  "codes": [
+   "16588451",
+   "16588746"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": true,
+   "cluster": true,
+   "density": false
+  },
+  "exposureCount": 2,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "장상동-531-**",
+  "dong": "장상동",
+  "jibun": "531-**",
+  "lat": 37.359432,
+  "lng": 126.871598,
+  "units": 1,
+  "codes": [
+   "16588750"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": false,
+   "cluster": true,
+   "density": false
+  },
+  "exposureCount": 1,
+  "cycleMonths": 12,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "장상동-530-**",
+  "dong": "장상동",
+  "jibun": "530-**",
+  "lat": 37.359693,
+  "lng": 126.871164,
+  "units": 1,
+  "codes": [
+   "16588749"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": false,
+   "cluster": true,
+   "density": false
+  },
+  "exposureCount": 1,
+  "cycleMonths": 12,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "팔곡이동-457-**",
+  "dong": "팔곡이동",
+  "jibun": "457-**",
+  "lat": 37.293797,
+  "lng": 126.882657,
+  "units": 3,
+  "codes": [
+   "16588392",
+   "16588393",
+   "294135"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 2,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": true,
+   "cluster": true,
+   "density": false
+  },
+  "exposureCount": 2,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 2등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "팔곡이동-405-**",
+  "dong": "팔곡이동",
+  "jibun": "405-**",
+  "lat": 37.296754,
+  "lng": 126.886016,
+  "units": 2,
+  "codes": [
+   "16588381",
+   "16588379"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": false,
+   "cluster": true,
+   "density": false
+  },
+  "exposureCount": 1,
+  "cycleMonths": 12,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "팔곡이동-417-**",
+  "dong": "팔곡이동",
+  "jibun": "417-**",
+  "lat": 37.294282,
+  "lng": 126.884382,
+  "units": 1,
+  "codes": [
+   "16588383"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": false,
+   "cluster": true,
+   "density": false
+  },
+  "exposureCount": 1,
+  "cycleMonths": 12,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "팔곡이동-433-**",
+  "dong": "팔곡이동",
+  "jibun": "433-**",
+  "lat": 37.294896,
+  "lng": 126.884431,
+  "units": 2,
+  "codes": [
+   "16588388",
+   "16588389"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": false,
+   "cluster": true,
+   "density": false
+  },
+  "exposureCount": 1,
+  "cycleMonths": 12,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "팔곡이동-408-**",
+  "dong": "팔곡이동",
+  "jibun": "408-**",
+  "lat": 37.296396,
+  "lng": 126.886589,
+  "units": 1,
+  "codes": [
+   "16588382"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": false,
+   "cluster": true,
+   "density": false
+  },
+  "exposureCount": 1,
+  "cycleMonths": 12,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "팔곡이동-424-**",
+  "dong": "팔곡이동",
+  "jibun": "424-**",
+  "lat": 37.294865,
+  "lng": 126.884467,
+  "units": 1,
+  "codes": [
+   "16588384"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": false,
+   "cluster": true,
+   "density": false
+  },
+  "exposureCount": 1,
+  "cycleMonths": 12,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "팔곡이동-449-**",
+  "dong": "팔곡이동",
+  "jibun": "449-**",
+  "lat": 37.293945,
+  "lng": 126.883553,
+  "units": 1,
+  "codes": [
+   "16588390"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": true,
+   "cluster": true,
+   "density": true
+  },
+  "exposureCount": 3,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "팔곡이동-452-**",
+  "dong": "팔곡이동",
+  "jibun": "452-**",
+  "lat": 37.294185,
+  "lng": 126.883061,
+  "units": 1,
+  "codes": [
+   "16588391"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": true,
+   "cluster": true,
+   "density": true
+  },
+  "exposureCount": 3,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "팔곡일동-261-1**",
+  "dong": "팔곡일동",
+  "jibun": "261-1**",
+  "lat": 37.306413,
+  "lng": 126.899172,
+  "units": 3,
+  "codes": [
+   "16588723",
+   "16588726",
+   "16588724"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": true,
+   "cluster": true,
+   "density": false
+  },
+  "exposureCount": 2,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "팔곡일동-261-**",
+  "dong": "팔곡일동",
+  "jibun": "261-**",
+  "lat": 37.306397,
+  "lng": 126.899338,
+  "units": 1,
+  "codes": [
+   "16588722"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": true,
+   "cluster": true,
+   "density": false
+  },
+  "exposureCount": 2,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "팔곡일동-279-1**",
+  "dong": "팔곡일동",
+  "jibun": "279-1**",
+  "lat": 37.303406,
+  "lng": 126.899239,
+  "units": 1,
+  "codes": [
+   "16588727"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": true,
+   "cluster": false,
+   "density": false
+  },
+  "exposureCount": 1,
+  "cycleMonths": 12,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "와동-737-**",
+  "dong": "와동",
+  "jibun": "737-**",
+  "lat": 37.33457,
+  "lng": 126.823224,
+  "units": 1,
+  "codes": [
+   "16588774"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": true,
+   "cluster": true,
+   "density": true
+  },
+  "exposureCount": 3,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "일동-108-1**",
+  "dong": "일동",
+  "jibun": "108-1**",
+  "lat": 37.315407,
+  "lng": 126.871109,
+  "units": 1,
+  "codes": [
+   "15324"
+  ],
+  "types": [
+   "단독"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": true,
+   "cluster": false,
+   "density": true
+  },
+  "exposureCount": 2,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "사동-1286-**",
+  "dong": "사동",
+  "jibun": "1286-**",
+  "lat": 37.296821,
+  "lng": 126.847105,
+  "units": 1,
+  "codes": [
+   "267936"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": false,
+   "cluster": false,
+   "density": true
+  },
+  "exposureCount": 1,
+  "cycleMonths": 12,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "사동-1341-**",
+  "dong": "사동",
+  "jibun": "1341-**",
+  "lat": 37.294091,
+  "lng": 126.856054,
+  "units": 1,
+  "codes": [
+   "345900"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": true,
+   "cluster": false,
+   "density": false
+  },
+  "exposureCount": 1,
+  "cycleMonths": 12,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "사동-1407-**",
+  "dong": "사동",
+  "jibun": "1407-**",
+  "lat": 37.283947,
+  "lng": 126.851777,
+  "units": 1,
+  "codes": [
+   "1281710"
+  ],
+  "types": [
+   "단독"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": true,
+   "cluster": false,
+   "density": true
+  },
+  "exposureCount": 2,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "사동-1478-**",
+  "dong": "사동",
+  "jibun": "1478-**",
+  "lat": 37.279162,
+  "lng": 126.850178,
+  "units": 2,
+  "codes": [
+   "246178",
+   "267105"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": false,
+   "cluster": true,
+   "density": true
+  },
+  "exposureCount": 2,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "사동-150**",
+  "dong": "사동",
+  "jibun": "150**",
+  "lat": 37.280262,
+  "lng": 126.853344,
+  "units": 1,
+  "codes": [
+   "294692"
+  ],
+  "types": [
+   "아파트"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": false,
+   "cluster": false,
+   "density": false
+  },
+  "exposureCount": 0,
+  "cycleMonths": 12,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "부곡동-61**",
+  "dong": "부곡동",
+  "jibun": "61**",
+  "lat": 37.326755,
+  "lng": 126.860748,
+  "units": 1,
+  "codes": [
+   "1281692"
+  ],
+  "types": [
+   "단독"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": true,
+   "cluster": false,
+   "density": true
+  },
+  "exposureCount": 2,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "사사동-239-**",
+  "dong": "사사동",
+  "jibun": "239-**",
+  "lat": 37.298757,
+  "lng": 126.924043,
+  "units": 1,
+  "codes": [
+   "305859"
+  ],
+  "types": [
+   "아파트"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": false,
+   "cluster": false,
+   "density": false
+  },
+  "exposureCount": 0,
+  "cycleMonths": 12,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "사사동-404-**",
+  "dong": "사사동",
+  "jibun": "404-**",
+  "lat": 37.296653,
+  "lng": 126.918382,
+  "units": 1,
+  "codes": [
+   "294629"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": true,
+   "cluster": true,
+   "density": false
+  },
+  "exposureCount": 2,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "와동-108-1**",
+  "dong": "와동",
+  "jibun": "108-1**",
+  "lat": 37.341001,
+  "lng": 126.828772,
+  "units": 2,
+  "codes": [
+   "364759",
+   "347283"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": false,
+   "cluster": true,
+   "density": true
+  },
+  "exposureCount": 2,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "와동-776-**",
+  "dong": "와동",
+  "jibun": "776-**",
+  "lat": 37.34575,
+  "lng": 126.823047,
+  "units": 1,
+  "codes": [
+   "246181"
+  ],
+  "types": [
+   "다세대"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": true,
+   "cluster": false,
+   "density": true
+  },
+  "exposureCount": 2,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ },
+ {
+  "id": "대부남동-1020-1*",
+  "dong": "대부남동",
+  "jibun": "1020-1*",
+  "lat": 37.217811,
+  "lng": 126.564686,
+  "units": 1,
+  "codes": [
+   "370523"
+  ],
+  "types": [
+   "단독"
+  ],
+  "grade": 1,
+  "plan": "상시관리",
+  "planYear": "수시",
+  "exposure": {
+   "facility": false,
+   "cluster": true,
+   "density": false
+  },
+  "exposureCount": 1,
+  "cycleMonths": 6,
+  "lastChecked": "2026-01-01",
+  "hazardStage": null,
+  "actionDone": false,
+  "timeline": [
+   {
+    "date": "2025-12-31",
+    "type": "실태조사",
+    "note": "시 판정 1등급, 정비방식 상시관리"
+   }
+  ]
+ }
+]

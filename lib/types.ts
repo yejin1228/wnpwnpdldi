@@ -1,3 +1,5 @@
+import type { HazardStage, SosResult } from './sos'
+
 export type ReportCategory =
   | 'collapse'
   | 'garbage'
@@ -31,30 +33,51 @@ export interface ReportReceipt {
 
 export type ReportStatus = 'received' | 'reviewing' | 'inspecting' | 'done'
 
-export type InspectionStatus = 'pending' | 'scheduled' | 'inspected'
-
 export interface AdminSummary {
-  regularTargets: number
+  /** 계획대상 빈집 호수(158) */
+  totalHouses: number
+  /** 지도 방문지 수(130) */
+  totalSites: number
   newReports: number
-  /** SOS 구간 확정 전에는 null */
-  highRisk: number | null
-  scheduledThisWeek: number
-  completionRate: number
+  /** 진한 빨강 + 빨강 */
+  urgent: number
+  /** 주황 */
+  orange: number
+  /** 초록 */
+  green: number
 }
 
+export interface TimelineItem {
+  date: string
+  type: string
+  note: string
+}
+
+/** 방문지 1곳 = data/houses.json 한 항목 + SOS 계산값 */
 export interface Building {
   id: string
+  /** 화면 표시용: '동 가린지번' (근사 위치) */
   address: string
   dong: string
+  jibun: string
   lat: number
   lng: number
-  /** 백엔드가 계산해 내려주는 SOS 점수. 아직 산출 전이면 null */
-  sosScore: number | null
-  inspectionStatus: InspectionStatus
-  lastInspectedAt: string | null
+  units: number
+  codes: string[]
+  types: string[]
+  grade: number
+  plan: string
+  planYear: string
+  exposure: { facility: boolean; cluster: boolean; density: boolean }
+  exposureCount: number
+  cycleMonths: 6 | 12
+  lastChecked: string
+  hazardStage: HazardStage
+  cityPending: boolean
+  actionDone: boolean
+  sos: SosResult
   reportCount: number
-  builtYear: number
-  structure: string
+  timeline: TimelineItem[]
 }
 
 export interface CitizenReport {
@@ -74,12 +97,6 @@ export interface AiReading {
   readAt: string
 }
 
-export interface StatusUpdateResult {
-  buildingId: string
-  sosScore: number | null
-  inspectionStatus: InspectionStatus
-  updatedAt: string
-}
 
 export interface PatrolScreenshot {
   id: string

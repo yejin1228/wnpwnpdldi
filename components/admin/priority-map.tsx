@@ -5,17 +5,17 @@ import { useEffect, useMemo } from 'react'
 import L from 'leaflet'
 import { MapContainer, Marker, TileLayer, Tooltip, useMap } from 'react-leaflet'
 import { ANSAN_CENTER } from '@/lib/mock/data'
-import { getSosColor } from '@/lib/sos-scale'
+import { SOS_STYLE } from '@/lib/sos'
 import type { Building } from '@/lib/types'
 
 function markerIcon(b: Building, selected: boolean) {
-  const size = selected ? 40 : 30
-  const color = getSosColor(b.sosScore)
+  const size = selected ? 26 : b.sos.level >= 2 ? 18 : 14
+  const { color } = SOS_STYLE[b.sos.color]
   return L.divIcon({
     className: '',
     iconSize: [size, size],
     iconAnchor: [size / 2, size / 2],
-    html: `<span style="display:flex;align-items:center;justify-content:center;width:${size}px;height:${size}px;border-radius:9999px;background:${color};color:#fff;font:600 ${selected ? 13 : 11}px/1 var(--font-noto-sans-kr),sans-serif;border:${selected ? 4 : 2}px solid #fff;box-shadow:0 0 0 ${selected ? 3 : 1}px ${selected ? 'oklch(0.29 0.08 262)' : 'rgba(15,23,42,.25)'},0 4px 10px rgba(15,23,42,.25)">${b.sosScore ?? '–'}</span>`,
+    html: `<span style="display:block;width:${size}px;height:${size}px;border-radius:9999px;background:${color};border:${selected ? 4 : 2}px solid #fff;box-shadow:0 0 0 ${selected ? 3 : 1}px ${selected ? 'oklch(0.29 0.08 262)' : 'rgba(15,23,42,.35)'},0 2px 6px rgba(15,23,42,.3)"></span>`,
   })
 }
 
@@ -48,13 +48,14 @@ export default function PriorityMap({ buildings, selectedId, onSelect }: Priorit
           key={b.id}
           position={[b.lat, b.lng]}
           icon={markerIcon(b, b.id === selectedId)}
-          zIndexOffset={b.id === selectedId ? 1000 : 0}
+          zIndexOffset={b.id === selectedId ? 1000 : b.sos.level * 100}
           eventHandlers={{ click: () => onSelect(b.id) }}
           keyboard
-          title={`${b.address} SOS ${b.sosScore ?? '미산출'}`}
+          title={`${b.address} SOS ${SOS_STYLE[b.sos.color].label}`}
         >
-          <Tooltip direction="top" offset={[0, -14]}>
-            {b.address}
+          <Tooltip direction="top" offset={[0, -10]}>
+            {b.address} · {SOS_STYLE[b.sos.color].label}
+            {b.units > 1 ? ` · ${b.units}호` : ''}
           </Tooltip>
         </Marker>
       ))}
