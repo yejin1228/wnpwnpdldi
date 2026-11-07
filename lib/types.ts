@@ -77,23 +77,45 @@ export interface Building {
   actionDone: boolean
   sos: SosResult
   reportCount: number
+  /** 연결된 제보 중 가장 최근 접수일 */
+  latestReportAt: string | null
+  /** 연결된 제보 중 현장조사 전인 것의 가장 가까운 기한 */
+  openReportDueAt: string | null
+  /** openReportDueAt까지 남은 일수(D-day 배지). 없으면 null */
+  dDay: number | null
   timeline: TimelineItem[]
 }
 
 export interface CitizenReport {
   id: string
+  /** 연결된 빈집 id. 아직 연결 전이면 '' */
   buildingId: string
   category: ReportCategory
   title: string
+  description: string
   createdAt: string
   photoCount: number
+  /** 접수일 + 30일 현장조사 기한 */
+  dueAt: string
+  dDay: number
+  status: 'OPEN' | 'LINKED' | 'UNREGISTERED'
+  zoneLabel: string
+  inspectedAt: string | null
+  /** 담당자 화면 전용: 구역 안 등록 빈집 */
+  candidateIds: string[]
 }
 
 export interface AiReading {
   buildingId: string
-  /** 백엔드 AI 판독 결과 그대로 표시 */
-  findings: { label: string; detail: string }[]
+  /** LIVE = 실제 AI 호출, CACHE = 저장된 응답(인터넷·키 문제 시) */
+  source: 'LIVE' | 'CACHE'
+  /** 보안·화재·위생·붕괴·경관 5개 항목 */
+  findings: { key: string; label: string; status: 'DETECTED' | 'NOT_DETECTED' | 'UNKNOWN'; detail: string }[]
+  /** 점검 일지 초안 */
   summary: string
+  /** 관찰 결과로 뽑은 위해 단계 후보. 확정은 담당자 */
+  suggestedStage: HazardStage
+  recommendedAction: string | null
   readAt: string
 }
 

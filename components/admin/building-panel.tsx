@@ -84,6 +84,7 @@ export function BuildingPanel({ building, onClose, onUpdated }: BuildingPanelPro
   const [photos, setPhotos] = useState<File[]>([])
   const [uploadedCount, setUploadedCount] = useState<number | null>(null)
   const [uploading, setUploading] = useState(false)
+  const [uploadError, setUploadError] = useState<string | null>(null)
   const [reading, setReading] = useState<AiReading | null>(null)
   const [readingLoading, setReadingLoading] = useState(false)
   const [stage, setStage] = useState<string>('none')
@@ -110,14 +111,18 @@ export function BuildingPanel({ building, onClose, onUpdated }: BuildingPanelPro
 
   const upload = async () => {
     setUploading(true)
+    setUploadError(null)
     try {
       const { uploaded } = await uploadInspectionPhotos(building.id, photos)
       setUploadedCount(uploaded)
       setReadingLoading(true)
       const r = await getAiReading(building.id)
       setReading(r)
-      setJournal(r.summary)
-      setStage('1')
+      setJournal(r.recommendedAction ? `${r.summary} 권고 조치: ${r.recommendedAction}.` : r.summary)
+      setStage(r.suggestedStage ? String(r.suggestedStage) : 'none')
+    } catch (e) {
+      setUploadedCount(null)
+      setUploadError(e instanceof Error ? e.message : 'AI 판독을 요청하지 못했습니다')
     } finally {
       setUploading(false)
       setReadingLoading(false)
@@ -257,6 +262,11 @@ export function BuildingPanel({ building, onClose, onUpdated }: BuildingPanelPro
           ) : (
             <>
               <PhotoPicker files={photos} onChange={setPhotos} max={6} />
+              {uploadError && (
+                <p role="alert" className="mt-2 rounded-lg bg-destructive/10 px-3 py-2 text-sm text-destructive">
+                  {uploadError}
+                </p>
+              )}
               <Button className="mt-3 h-10 w-full" disabled={photos.length === 0 || uploading} onClick={upload}>
                 {uploading ? <LoaderCircle className="animate-spin" data-icon="inline-start" /> : <Upload data-icon="inline-start" />}
                 {uploading ? '업로드 중...' : '업로드 후 AI 판독 요청'}
@@ -273,19 +283,37 @@ export function BuildingPanel({ building, onClose, onUpdated }: BuildingPanelPro
             </p>
           ) : reading ? (
             <div className="rounded-lg border border-brand/20 bg-accent/50 p-3">
-              <p className="flex items-center gap-1.5 text-sm font-semibold text-accent-foreground">
-                <Bot className="size-4" aria-hidden="true" />
-                {reading.summary}
-              </p>
+              <div className="flex items-center justify-between gap-2">
+                <p className="flex items-center gap-1.5 text-sm font-semibold text-accent-foreground">
+                  <Bot className="size-4" aria-hidden="true" />
+                  AI 관찰 · 일지 초안
+                </p>
+                <span
+                  className={cn(
+                    'rounded-full px-2 py-0.5 text-[11px] font-semibold',
+                    reading.source === 'LIVE' ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-900',
+                  )}
+                  title={reading.source === 'LIVE' ? '방금 AI가 판독한 결과' : 'AI 호출이 안 돼 저장된 응답을 보여 줍니다'}
+                >
+                  {reading.source === 'LIVE' ? 'LIVE' : '캐시'}
+                </span>
+              </div>
+              <p className="mt-2 text-sm">{reading.summary}</p>
               <dl className="mt-3 flex flex-col gap-1.5 text-sm">
                 {reading.findings.map((f) => (
-                  <div key={f.label} className="flex gap-2">
+                  <div key={f.key} className="flex gap-2">
                     <dt className="w-14 shrink-0 font-medium text-muted-foreground">{f.label}</dt>
-                    <dd>{f.detail}</dd>
+                    <dd className={cn(f.status === 'DETECTED' && 'font-semibold', f.status === 'UNKNOWN' && 'text-muted-foreground')}>
+                      {f.detail}
+                    </dd>
                   </div>
                 ))}
               </dl>
-              <p className="mt-3 text-xs text-muted-foreground">AI 결과는 후보입니다. 위해 단계는 담당자가 확정합니다.</p>
+              <p className="mt-3 text-sm">
+                <span className="font-medium text-muted-foreground">단계 후보 </span>
+                {reading.suggestedStage ? STAGE_LABEL[reading.suggestedStage] : '해당 없음'}
+              </p>
+              <p className="mt-2 text-xs text-muted-foreground">AI 결과는 후보입니다. 위해 단계는 담당자가 확정합니다.</p>
             </div>
           ) : (
             <p className="text-sm text-muted-foreground">현장 사진을 업로드하면 판독 결과가 표시됩니다.</p>

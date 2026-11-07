@@ -4,7 +4,6 @@ import dynamic from 'next/dynamic'
 import { useMemo, useState } from 'react'
 import useSWR, { useSWRConfig } from 'swr'
 import { getBuildings } from '@/lib/api'
-import { MOCK_REPORTS } from '@/lib/mock/data'
 import { AS_OF, SOS_STYLE, compareSos } from '@/lib/sos'
 import type { Building } from '@/lib/types'
 import { BuildingPanel } from './building-panel'
@@ -29,8 +28,7 @@ function applyFilters(buildings: Building[], f: MapFilters) {
     if (f.quick === 'overdue' && b.sos.overdueDays === 0) return false
     if (f.period !== 'all') {
       const since = TODAY.getTime() - Number(f.period) * 86_400_000
-      const hasRecent = MOCK_REPORTS.some((r) => r.buildingId === b.id && new Date(r.createdAt).getTime() >= since)
-      if (!hasRecent) return false
+      if (!b.latestReportAt || new Date(b.latestReportAt).getTime() < since) return false
     }
     return true
   })

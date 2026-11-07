@@ -1,0 +1,50 @@
+{
+  "_설명": "시연용으로 미리 넣은 시민 제보(가상). siteId는 lib/data/houses.json의 실제 방문지 id. 서버를 켤 때 메모리에 올리고, 서버를 다시 켜면 이 상태로 돌아간다. 제보는 빈집 색을 바꾸지 않는다.",
+  "reports": [
+    {
+      "id": "R-2026-0412",
+      "siteId": "와동-102-**",
+      "category": "intrusion",
+      "title": "밤에 사람이 드나드는 것 같아요",
+      "description": "1층 현관문이 며칠째 열려 있고 밤에 불빛이 보여요.",
+      "createdAt": "2026-11-06",
+      "photoCount": 2
+    },
+    {
+      "id": "R-2026-0398",
+      "siteId": "와동-102-**",
+      "category": "garbage",
+      "title": "공용 계단에 쓰레기가 쌓여 있어요",
+      "description": "빈 호 앞 계단에 봉투가 계속 쌓입니다.",
+      "createdAt": "2026-10-27",
+      "photoCount": 1
+    },
+    {
+      "id": "R-2026-0405",
+      "siteId": "선부동-1104-1**",
+      "category": "collapse",
+      "title": "외벽에 금이 갔어요",
+      "description": "골목 쪽 외벽에 손가락 굵기 균열이 있어요.",
+      "createdAt": "2026-11-04",
+      "photoCount": 1
+    },
+    {
+      "id": "R-2026-0390",
+      "siteId": "부곡동-715-**",
+      "category": "fire",
+      "title": "전선이 늘어져 있어요",
+      "description": "창문 옆 전선이 끊어진 채 늘어져 있습니다.",
+      "createdAt": "2026-11-01",
+      "photoCount": 2
+    },
+    {
+      "id": "R-2026-0384",
+      "siteId": "일동-614-**",
+      "category": "pest",
+      "title": "악취와 해충이 심합니다",
+      "description": "여름부터 냄새가 나고 날벌레가 많아요.",
+      "createdAt": "2026-10-20",
+      "photoCount": 0
+    }
+  ]
+}
