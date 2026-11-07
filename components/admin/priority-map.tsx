@@ -95,7 +95,7 @@ export default function PriorityMap({ buildings, selectedId, onSelect, zones, fo
           eventHandlers={{ click: () => onZoneSelect(z.id) }}
         >
           <Tooltip direction="top" sticky>
-            시민 제보 구역 · {z.label} · 제보 {z.reports}건{z.open > 0 ? ` (연결 전 ${z.open})` : ''} · 기한 {z.nearestDueAt}
+            시민 제보 구역 · {z.label} · 제보 {z.reports}건{z.open > 0 ? ` (미연결 ${z.open})` : ''} · 기한 {z.nearestDueAt}
           </Tooltip>
         </Rectangle>
       ))}

@@ -31,11 +31,29 @@ import type {
   ZoneSelection,
 } from '../types'
 
+/** 서버 오류 중 사용자에게 그대로 보여 줘도 되는 것. 나머지(입력 형식 오류 등)는 일반 안내로 바꾼다 */
+const USER_FACING_ERRORS = new Set([
+  'INVALID_LOCATION',
+  'OUT_OF_AREA',
+  'INVALID_CATEGORY',
+  'ALREADY_LINKED',
+  'IMAGE_REQUIRED',
+  'SITE_NOT_FOUND',
+  'REPORT_NOT_FOUND',
+])
+const GENERIC_ERROR = '요청을 처리하지 못했습니다. 잠시 후 다시 시도해 주세요.'
+
 async function api<T>(url: string, init?: RequestInit): Promise<T> {
-  const res = await fetch(url, { cache: 'no-store', ...init })
-  const body = (await res.json().catch(() => null)) as (T & { error?: { message?: string } }) | null
+  let res: Response
+  try {
+    res = await fetch(url, { cache: 'no-store', ...init })
+  } catch {
+    throw new Error('서버에 연결하지 못했습니다. 네트워크를 확인해 주세요.')
+  }
+  const body = (await res.json().catch(() => null)) as (T & { error?: { code?: string; message?: string } }) | null
   if (!res.ok || body === null) {
-    throw new Error(body?.error?.message ?? `요청을 처리하지 못했습니다 (${res.status})`)
+    const err = body?.error
+    throw new Error(err?.code && err.message && USER_FACING_ERRORS.has(err.code) ? err.message : GENERIC_ERROR)
   }
   return body
 }

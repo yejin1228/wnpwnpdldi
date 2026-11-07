@@ -8,13 +8,13 @@ export function PatrolGallery({ shots }: { shots: PatrolScreenshot[] }) {
       {shots.map((s, i) => (
         <li key={s.id}>
           <figure className="flex flex-col gap-3">
-            <div className="relative mx-auto aspect-[9/19] w-full max-w-64 overflow-hidden rounded-[2rem] border-[6px] border-primary bg-muted shadow-lg">
+            <div className="relative mx-auto aspect-[1170/2532] w-full max-w-64 overflow-hidden rounded-[2rem] border-[6px] border-primary bg-muted shadow-lg">
               {s.src ? (
-                <Image src={s.src} alt={s.caption} fill sizes="256px" className="object-cover" />
+                <Image src={s.src} alt={s.caption} fill sizes="256px" className="object-contain" />
               ) : (
                 <div className="flex size-full flex-col items-center justify-center gap-2 text-muted-foreground">
                   <ImageIcon className="size-8" aria-hidden="true" />
-                  <span className="text-xs">스크린샷 준비 중</span>
+                  <span className="text-xs">이미지를 불러오지 못했습니다</span>
                 </div>
               )}
             </div>

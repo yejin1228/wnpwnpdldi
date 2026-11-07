@@ -206,7 +206,7 @@ export function BuildingPanel({ building, onClose, onUpdated }: BuildingPanelPro
             </div>
           </div>
           <div className="mt-3">
-            <p className="text-sm font-semibold text-muted-foreground">피해 범위 {building.exposureCount}/3</p>
+            <p className="text-sm font-semibold text-muted-foreground">피해 범위 3개 중 {building.exposureCount}개</p>
             <ul className="mt-1.5 flex flex-wrap gap-1.5">
               {(Object.keys(EXPOSURE_LABEL) as (keyof typeof EXPOSURE_LABEL)[]).map((k) => (
                 <li
@@ -224,7 +224,7 @@ export function BuildingPanel({ building, onClose, onUpdated }: BuildingPanelPro
 
           {nearbyOpen.length > 0 && (
             <div className="mt-4">
-              <p className="text-sm font-semibold text-violet-800">이 구역에 들어온 연결 전 제보 {nearbyOpen.length}건</p>
+              <p className="text-sm font-semibold text-violet-800">이 구역에 들어온 미연결 제보 {nearbyOpen.length}건</p>
               <ul className="mt-2 flex flex-col gap-2">
                 {nearbyOpen.map((r) => (
                   <li key={r.id}>
@@ -311,9 +311,9 @@ export function BuildingPanel({ building, onClose, onUpdated }: BuildingPanelPro
                     'rounded-full px-2 py-0.5 text-[11px] font-semibold',
                     reading.source === 'LIVE' ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-900',
                   )}
-                  title={reading.source === 'LIVE' ? '방금 AI가 판독한 결과' : 'AI 호출이 안 돼 저장된 응답을 보여 줍니다'}
+                  title={reading.source === 'LIVE' ? '방금 AI가 판독한 결과' : '네트워크 문제로 저장된 판독 결과를 표시합니다'}
                 >
-                  {reading.source === 'LIVE' ? 'LIVE' : '캐시'}
+                  {reading.source === 'LIVE' ? 'AI 판독' : '저장된 판독 결과'}
                 </span>
               </div>
               <p className="mt-2 text-sm">{reading.summary}</p>
@@ -396,7 +396,7 @@ export function BuildingPanel({ building, onClose, onUpdated }: BuildingPanelPro
               style={{ background: SOS_STYLE[building.sos.color].color, color: SOS_STYLE[building.sos.color].ink }}
               aria-live="polite"
             >
-              <span className="text-base font-bold">지금 색: {SOS_STYLE[building.sos.color].label}</span>
+              <span className="text-base font-bold">현재 긴급도: {SOS_STYLE[building.sos.color].label}</span>
               <span className="text-sm font-medium tabular-nums">다음 점검 {building.sos.nextInspectionAt}</span>
             </p>
             {needsAction && (

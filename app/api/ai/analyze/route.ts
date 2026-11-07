@@ -12,7 +12,7 @@ export const POST = route(async (req: Request) => {
   if (!siteId) throw badRequest('siteId가 필요합니다')
   assertSite(siteId)
   const [image] = formFiles(form, 'image')
-  if (!image) throw badRequest('사진(image)이 필요합니다', 'IMAGE_REQUIRED')
+  if (!image) throw badRequest('현장 사진을 올려 주세요', 'IMAGE_REQUIRED')
   const bytes = Buffer.from(await image.arrayBuffer())
   return Response.json(await analyzePhoto(bytes, image.type))
 })

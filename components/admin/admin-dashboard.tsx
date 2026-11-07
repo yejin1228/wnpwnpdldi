@@ -45,7 +45,7 @@ function PriorityList({ buildings, onSelect }: { buildings: Building[]; onSelect
     <div className="flex h-full flex-col">
       <header className="shrink-0 border-b px-5 py-3">
         <h2 className="text-lg font-bold text-primary">먼저 갈 곳</h2>
-        <p className="mt-0.5 text-sm text-muted-foreground">색 → 피해 범위 → 기한 넘긴 일수 순. 지도나 목록에서 빈집을 고르세요.</p>
+        <p className="mt-0.5 text-sm text-muted-foreground">긴급도가 높은 순서입니다.</p>
       </header>
       <ol className="min-h-0 flex-1 overflow-y-auto">
         {buildings.map((b, i) => (
@@ -109,9 +109,9 @@ function ListTabs({ tab, onChange, openReports }: { tab: ListTab; onChange: (t: 
       {item(
         'reports',
         <>
-          시민 제보 30일
+          시민 제보
           {openReports > 0 && (
-            <span className="rounded-full bg-violet-700 px-1.5 py-0.5 text-[11px] leading-none text-white">연결 전 {openReports}</span>
+            <span className="rounded-full bg-violet-700 px-1.5 py-0.5 text-[11px] leading-none text-white">미연결 {openReports}</span>
           )}
         </>,
       )}
@@ -165,15 +165,8 @@ export function AdminDashboard() {
   return (
     <div className="flex min-h-0 min-w-0 flex-1 flex-col">
       <header className="flex h-16 shrink-0 items-center justify-between border-b bg-background px-5">
-        <div>
-          <h1 className="text-xl font-bold text-primary">SOS 긴급도 지도</h1>
-          <p className="text-sm text-muted-foreground">어디부터 가야 하는지 지도에서 확인하세요</p>
-        </div>
-        <span className="text-right text-sm leading-snug text-muted-foreground">
-          2026.11.08 기준 · 안산시 빈집정비계획(안) 158호
-          <br />
-          위치는 근사값 · 마지막 점검일은 2026.01.01로 가정
-        </span>
+        <h1 className="text-xl font-bold text-primary">SOS 긴급도 지도</h1>
+        <span className="text-right text-sm text-muted-foreground">2026.11.08 기준 · 안산시 빈집정비계획(안) 158호</span>
       </header>
 
       <div className="flex shrink-0 flex-col gap-3 p-4">

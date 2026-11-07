@@ -6,7 +6,6 @@ const NAV = [
   { href: '/report', label: '시민 제보' },
   { href: '/admin', label: '담당자' },
   { href: '/patrol', label: '순찰대' },
-  { href: '/#contact', label: '문의' },
 ]
 
 export function SiteHeader() {

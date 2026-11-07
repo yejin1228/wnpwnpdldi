@@ -28,7 +28,7 @@ export function SosLegend() {
           </span>
         </li>
       </ul>
-      <p className="mt-2 text-muted-foreground">점수·가중치 없음. 위해 판정과 점검 기한 중 더 나쁜 쪽을 따릅니다.</p>
+      <p className="mt-2 text-muted-foreground">위해 판정과 점검 기한 중 더 긴급한 쪽으로 표시합니다.</p>
     </div>
   )
 }

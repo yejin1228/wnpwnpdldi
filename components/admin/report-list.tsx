@@ -85,7 +85,7 @@ export function ReportCard({ report: r, byId, onSelectBuilding, onlyBuildingId, 
       <div className="flex items-center justify-between gap-2">
         <span className="flex items-center gap-1.5">
           <Badge variant="secondary">{categoryLabel(r.category)}</Badge>
-          {r.status === 'OPEN' && <span className="text-xs font-semibold text-violet-800">연결 전</span>}
+          {r.status === 'OPEN' && <span className="text-xs font-semibold text-violet-800">미연결</span>}
         </span>
         <DueBadge report={r} />
       </div>
@@ -108,7 +108,7 @@ export function ReportCard({ report: r, byId, onSelectBuilding, onlyBuildingId, 
         <div className="mt-2 flex flex-col gap-1.5 border-t border-violet-200 pt-2">
           {candidates.length > 0 ? (
             <>
-              {!onlyBuildingId && <p className="text-xs font-semibold text-violet-800">구역 안 등록 빈집 (담당자가 확인 후 연결)</p>}
+              {!onlyBuildingId && <p className="text-xs font-semibold text-violet-800">이 구역의 등록 빈집</p>}
               {candidates.slice(0, 4).map((id) => (
                 <div key={id} className="flex items-center justify-between gap-2">
                   {onlyBuildingId ? (
@@ -171,9 +171,9 @@ export function ReportList({ buildings, focusZoneId, onClearZone, onSelectBuildi
   return (
     <div className="flex h-full flex-col">
       <header className="shrink-0 border-b px-5 py-3">
-        <h2 className="text-lg font-bold text-primary">시민 제보 · 30일 현장조사</h2>
+        <h2 className="text-lg font-bold text-primary">시민 제보</h2>
         <p className="mt-0.5 text-sm text-muted-foreground">
-          연결 전 {open}건 먼저, 그다음 기한 가까운 순. 제보만으로 빈집 색은 바뀌지 않습니다.
+          미연결 {open}건 · 현장조사 기한 순
         </p>
         {focusZoneId && (
           <button

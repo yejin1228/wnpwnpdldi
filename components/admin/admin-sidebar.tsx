@@ -47,13 +47,9 @@ export function AdminSidebar() {
                   <span className="flex-1">{m.label}</span>
                 </a>
               ) : (
-                <span
-                  aria-disabled
-                  className="flex cursor-not-allowed items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-primary-foreground/55"
-                >
+                <span className="flex cursor-default items-center gap-3 rounded-lg px-3 py-2.5 text-sm">
                   <m.icon className="size-4" aria-hidden="true" />
                   <span className="flex-1">{m.label}</span>
-                  <span className="text-[11px] text-primary-foreground/60">준비 중</span>
                 </span>
               )}
             </li>
@@ -61,7 +57,7 @@ export function AdminSidebar() {
         </ul>
       </nav>
       <div className="border-t border-white/10 px-5 py-4 text-xs text-primary-foreground/70">
-        담당: 홍길동 (단원구)
+        빈집관리 담당자
       </div>
     </aside>
   )

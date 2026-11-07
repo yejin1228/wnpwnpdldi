@@ -332,13 +332,13 @@ export function decideReport(id: string, decision: unknown, siteId: unknown): Re
 
   if (decision === 'LINK') {
     if (typeof siteId !== 'string' || !siteId) throw badRequest('연결할 빈집(siteId)이 필요합니다')
-    if (r.status === 'LINKED') throw badRequest(`이미 ${r.siteId}에 연결된 제보입니다`, 'ALREADY_LINKED')
+    if (r.status === 'LINKED') throw badRequest('이미 다른 빈집에 연결된 제보입니다', 'ALREADY_LINKED')
     const site = findSite(siteId)
     r.status = 'LINKED'
     r.siteId = site.id
     site.timeline.push({ date: AS_OF, type: '제보 연결', note: linkNote(r) })
   } else if (decision === 'UNREGISTERED') {
-    if (r.status === 'LINKED') throw badRequest(`이미 ${r.siteId}에 연결된 제보입니다`, 'ALREADY_LINKED')
+    if (r.status === 'LINKED') throw badRequest('이미 다른 빈집에 연결된 제보입니다', 'ALREADY_LINKED')
     r.status = 'UNREGISTERED'
   } else {
     throw badRequest("decision은 'LINK' 또는 'UNREGISTERED'입니다")

@@ -27,7 +27,7 @@ export function SummaryCards() {
       label: '관리 대상 빈집',
       value: v(data?.totalHouses),
       unit: '호',
-      note: data ? `방문지 ${data.totalSites}곳` : undefined,
+      note: data ? `점검 장소 ${data.totalSites}곳` : undefined,
       highlight: true,
     },
     { label: '신규 시민 제보', value: v(data?.newReports), unit: '건', note: '30일 안 현장조사' },
