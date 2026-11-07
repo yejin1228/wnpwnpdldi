@@ -9,11 +9,12 @@ import { Label } from '@/components/ui/label'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Textarea } from '@/components/ui/textarea'
 import { PhotoPicker } from '@/components/shared/photo-picker'
-import { completeAction, confirmInspection, getAiReading, getBuildingReports, uploadInspectionPhotos } from '@/lib/api'
+import { completeAction, confirmInspection, getAiReading, getBuildingReports, getReports, uploadInspectionPhotos } from '@/lib/api'
 import { EXPOSURE_LABEL, categoryLabel } from '@/lib/labels'
 import { SOS_STYLE, STAGE_LABEL, type HazardStage } from '@/lib/sos'
 import type { AiReading, Building } from '@/lib/types'
 import { cn } from '@/lib/utils'
+import { DueBadge, ReportCard } from './report-list'
 
 const STEPS = ['빈집·제보 확인', '현장 사진 업로드', 'AI 판독 결과', '위해 단계 확정·조치']
 
@@ -80,6 +81,10 @@ function SosBadge({ building }: { building: Building }) {
 
 export function BuildingPanel({ building, onClose, onUpdated }: BuildingPanelProps) {
   const { data: reports, isLoading } = useSWR(['reports', building.id], () => getBuildingReports(building.id))
+  // 이 빈집이 후보로 잡힌, 아직 연결 전인 시민 제보(담당자가 확인 후 연결)
+  const { data: reportList } = useSWR('report-list', getReports, { refreshInterval: 5000 })
+  const nearbyOpen = (reportList?.reports ?? []).filter((r) => r.status === 'OPEN' && r.candidateIds.includes(building.id))
+  const byId = new Map([[building.id, building]])
 
   const [photos, setPhotos] = useState<File[]>([])
   const [uploadedCount, setUploadedCount] = useState<number | null>(null)
@@ -217,8 +222,21 @@ export function BuildingPanel({ building, onClose, onUpdated }: BuildingPanelPro
             </ul>
           </div>
 
+          {nearbyOpen.length > 0 && (
+            <div className="mt-4">
+              <p className="text-sm font-semibold text-violet-800">이 구역에 들어온 연결 전 제보 {nearbyOpen.length}건</p>
+              <ul className="mt-2 flex flex-col gap-2">
+                {nearbyOpen.map((r) => (
+                  <li key={r.id}>
+                    <ReportCard report={r} byId={byId} onSelectBuilding={() => {}} onlyBuildingId={building.id} />
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
           <div className="mt-4">
-            <p className="text-sm font-semibold text-muted-foreground">시민 제보 {reports?.length ?? building.reportCount}건</p>
+            <p className="text-sm font-semibold text-muted-foreground">연결된 시민 제보 {reports?.length ?? building.reportCount}건</p>
             {isLoading ? (
               <div className="mt-2 h-16 animate-pulse rounded-lg bg-muted" />
             ) : reports && reports.length > 0 ? (
@@ -227,11 +245,11 @@ export function BuildingPanel({ building, onClose, onUpdated }: BuildingPanelPro
                   <li key={r.id} className="rounded-lg border border-violet-300 bg-violet-50 p-3 text-violet-950">
                     <div className="flex items-center justify-between gap-2">
                       <Badge variant="secondary">{categoryLabel(r.category)}</Badge>
-                      <span className="text-xs tabular-nums text-violet-800">{r.createdAt}</span>
+                      <DueBadge report={r} />
                     </div>
                     <p className="mt-1.5 text-base font-medium">{r.title}</p>
                     <p className="mt-1 text-xs text-violet-800">
-                      {r.id} · 사진 {r.photoCount}장
+                      {r.createdAt} 접수 · 기한 {r.dueAt} · 사진 {r.photoCount}장 · {r.id}
                     </p>
                   </li>
                 ))}

@@ -1,15 +1,21 @@
 'use client'
 
 import dynamic from 'next/dynamic'
-import { useMemo, useState } from 'react'
-import useSWR, { useSWRConfig } from 'swr'
-import { getBuildings } from '@/lib/api'
+import { useEffect, useMemo, useState } from 'react'
+import useSWR from 'swr'
+import { getBuildings, getZones } from '@/lib/api'
+import { dDayLabel } from '@/lib/labels'
 import { AS_OF, SOS_STYLE, compareSos } from '@/lib/sos'
 import type { Building } from '@/lib/types'
+import { cn } from '@/lib/utils'
 import { BuildingPanel } from './building-panel'
 import { MapToolbar, type MapFilters } from './map-toolbar'
+import { ReportList } from './report-list'
 import { SosLegend } from './sos-legend'
 import { SummaryCards } from './summary-cards'
+import { useRefreshAdmin } from './use-refresh'
+
+type ListTab = 'priority' | 'reports'
 
 const PriorityMap = dynamic(() => import('./priority-map'), {
   ssr: false,
@@ -59,11 +65,18 @@ function PriorityList({ buildings, onSelect }: { buildings: Building[]; onSelect
               <span className="min-w-0 flex-1">
                 <span className="flex items-center justify-between gap-2">
                   <span className="truncate text-base font-semibold">{b.address}</span>
-                  {b.reportCount > 0 && (
-                    <span className="shrink-0 rounded-full bg-violet-100 px-2 py-0.5 text-xs font-semibold text-violet-800">
-                      제보 {b.reportCount}
-                    </span>
-                  )}
+                  <span className="flex shrink-0 gap-1">
+                    {b.dDay != null && (
+                      <span className="rounded-full bg-violet-700 px-2 py-0.5 text-xs font-bold text-white tabular-nums">
+                        {dDayLabel(b.dDay)}
+                      </span>
+                    )}
+                    {b.reportCount > 0 && (
+                      <span className="rounded-full bg-violet-100 px-2 py-0.5 text-xs font-semibold text-violet-800">
+                        제보 {b.reportCount}
+                      </span>
+                    )}
+                  </span>
                 </span>
                 <span className="mt-0.5 block truncate text-sm text-muted-foreground">{b.sos.reasons[0]}</span>
               </span>
@@ -75,11 +88,69 @@ function PriorityList({ buildings, onSelect }: { buildings: Building[]; onSelect
   )
 }
 
+function ListTabs({ tab, onChange, openReports }: { tab: ListTab; onChange: (t: ListTab) => void; openReports: number }) {
+  const item = (t: ListTab, label: React.ReactNode) => (
+    <button
+      type="button"
+      role="tab"
+      aria-selected={tab === t}
+      onClick={() => onChange(t)}
+      className={cn(
+        'flex flex-1 items-center justify-center gap-1.5 border-b-2 px-3 py-2.5 text-sm font-semibold',
+        tab === t ? 'border-primary text-primary' : 'border-transparent text-muted-foreground hover:text-foreground',
+      )}
+    >
+      {label}
+    </button>
+  )
+  return (
+    <div role="tablist" aria-label="목록" className="flex shrink-0 border-b">
+      {item('priority', '먼저 갈 곳')}
+      {item(
+        'reports',
+        <>
+          시민 제보 30일
+          {openReports > 0 && (
+            <span className="rounded-full bg-violet-700 px-1.5 py-0.5 text-[11px] leading-none text-white">연결 전 {openReports}</span>
+          )}
+        </>,
+      )}
+    </div>
+  )
+}
+
 export function AdminDashboard() {
   const { data: buildings = [], mutate } = useSWR('buildings', getBuildings)
-  const { mutate: globalMutate } = useSWRConfig()
+  // 다른 탭(시민 화면)에서 들어온 제보가 바로 보이도록 5초마다 다시 받는다
+  const { data: zones = [] } = useSWR('zones', getZones, { refreshInterval: 5000 })
+  const refreshAll = useRefreshAdmin()
   const [filters, setFilters] = useState<MapFilters>({ query: '', quick: 'all', dong: 'all', period: 'all' })
   const [selectedId, setSelectedId] = useState<string | null>(null)
+  const [listTab, setListTab] = useState<ListTab>('priority')
+  const [focusZoneId, setFocusZoneId] = useState<string | null>(null)
+  const openReports = zones.reduce((n, z) => n + z.open, 0)
+
+  // 사이드바 '시민 제보 목록'(#reports) · 'SOS 긴급도 지도'(#map)
+  useEffect(() => {
+    const apply = () => {
+      if (window.location.hash === '#reports') {
+        setSelectedId(null)
+        setListTab('reports')
+      } else if (window.location.hash === '#map') {
+        setSelectedId(null)
+        setListTab('priority')
+      }
+    }
+    apply()
+    window.addEventListener('hashchange', apply)
+    return () => window.removeEventListener('hashchange', apply)
+  }, [])
+
+  const selectZone = (zoneId: string) => {
+    setSelectedId(null)
+    setListTab('reports')
+    setFocusZoneId(zoneId)
+  }
 
   const dongs = useMemo(() => [...new Set(buildings.map((b) => b.dong))].sort(), [buildings])
   const visible = useMemo(() => applyFilters(buildings, filters), [buildings, filters])
@@ -87,7 +158,8 @@ export function AdminDashboard() {
 
   const handleUpdated = (updated: Building) => {
     mutate((prev) => prev?.map((b) => (b.id === updated.id ? updated : b)).sort(compareSos), { revalidate: false })
-    globalMutate('admin-summary')
+    // 점검하면 연결된 제보가 '현장조사 완료'로 바뀌므로 KPI·제보 목록도 다시 받는다
+    void refreshAll()
   }
 
   return (
@@ -111,7 +183,14 @@ export function AdminDashboard() {
 
       <div className="flex min-h-0 flex-1 flex-col gap-4 px-4 pb-4 lg:flex-row">
         <div className="relative h-[60vh] min-h-96 flex-1 overflow-hidden rounded-xl border lg:h-auto lg:min-h-0">
-          <PriorityMap buildings={visible} selectedId={selectedId} onSelect={setSelectedId} />
+          <PriorityMap
+            buildings={visible}
+            selectedId={selectedId}
+            onSelect={setSelectedId}
+            zones={zones}
+            focusZoneId={focusZoneId}
+            onZoneSelect={selectZone}
+          />
           <div className="absolute bottom-3 left-3 z-[400]">
             <SosLegend />
           </div>
@@ -132,7 +211,21 @@ export function AdminDashboard() {
               onUpdated={handleUpdated}
             />
           ) : (
-            <PriorityList buildings={visible} onSelect={setSelectedId} />
+            <>
+              <ListTabs tab={listTab} onChange={setListTab} openReports={openReports} />
+              <div className="min-h-0 flex-1">
+                {listTab === 'priority' ? (
+                  <PriorityList buildings={visible} onSelect={setSelectedId} />
+                ) : (
+                  <ReportList
+                    buildings={buildings}
+                    focusZoneId={focusZoneId}
+                    onClearZone={() => setFocusZoneId(null)}
+                    onSelectBuilding={setSelectedId}
+                  />
+                )}
+              </div>
+            </>
           )}
         </aside>
       </div>

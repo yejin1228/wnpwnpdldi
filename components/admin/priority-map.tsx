@@ -3,9 +3,11 @@
 import 'leaflet/dist/leaflet.css'
 import { useEffect, useMemo } from 'react'
 import L from 'leaflet'
-import { MapContainer, Marker, TileLayer, Tooltip, useMap } from 'react-leaflet'
+import { MapContainer, Marker, Rectangle, TileLayer, Tooltip, useMap } from 'react-leaflet'
+import type { ZoneSummary } from '@/lib/contracts'
+import { dDayLabel } from '@/lib/labels'
 import { ANSAN_CENTER } from '@/lib/mock/data'
-import { SOS_STYLE } from '@/lib/sos'
+import { SOS_STYLE, ZONE_COLOR } from '@/lib/sos'
 import type { Building } from '@/lib/types'
 
 /** 단계가 높을수록 크게: 초록 14 · 주황 16 · 빨강 20 · 진한 빨강 26 (px) */
@@ -24,11 +26,17 @@ function markerIcon(b: Building, selected: boolean) {
   const glyph = isDarkRed
     ? `<span style="font:700 ${Math.round(size * 0.5)}px/1 system-ui,sans-serif;color:${ink}">1</span>`
     : ''
+  const dot = `<span style="display:flex;align-items:center;justify-content:center;width:${size}px;height:${size}px;border-radius:9999px;background:${color};border:${border}px solid #fff;box-shadow:${ring},0 2px 6px rgba(15,23,42,.3);box-sizing:border-box">${glyph}</span>`
+  // 연결된 제보의 현장조사 기한(D-day) 배지. 점 오른쪽 위에 붙인다.
+  const badge =
+    b.dDay != null
+      ? `<span style="position:absolute;left:${size - 3}px;top:-12px;white-space:nowrap;background:${ZONE_COLOR};color:#fff;font:700 11px/1 system-ui,sans-serif;padding:3px 5px;border-radius:9999px;border:1.5px solid #fff;box-shadow:0 1px 3px rgba(15,23,42,.35)">${dDayLabel(b.dDay)}</span>`
+      : ''
   return L.divIcon({
     className: '',
     iconSize: [size, size],
     iconAnchor: [size / 2, size / 2],
-    html: `<span style="display:flex;align-items:center;justify-content:center;width:${size}px;height:${size}px;border-radius:9999px;background:${color};border:${border}px solid #fff;box-shadow:${ring},0 2px 6px rgba(15,23,42,.3);box-sizing:border-box">${glyph}</span>`,
+    html: `<span style="position:relative;display:block;width:${size}px;height:${size}px">${dot}${badge}</span>`,
   })
 }
 
@@ -56,9 +64,13 @@ interface PriorityMapProps {
   buildings: Building[]
   selectedId: string | null
   onSelect: (id: string) => void
+  /** 30일 안 시민 제보가 있는 250m 구역 */
+  zones: ZoneSummary[]
+  focusZoneId: string | null
+  onZoneSelect: (zoneId: string) => void
 }
 
-export default function PriorityMap({ buildings, selectedId, onSelect }: PriorityMapProps) {
+export default function PriorityMap({ buildings, selectedId, onSelect, zones, focusZoneId, onZoneSelect }: PriorityMapProps) {
   const selected = useMemo(() => buildings.find((b) => b.id === selectedId) ?? null, [buildings, selectedId])
 
   return (
@@ -69,6 +81,24 @@ export default function PriorityMap({ buildings, selectedId, onSelect }: Priorit
       />
       <InvalidateOnResize />
       <FlyTo target={selected} />
+      {zones.map((z) => (
+        <Rectangle
+          key={z.id}
+          bounds={z.bounds}
+          pathOptions={{
+            color: ZONE_COLOR,
+            weight: z.id === focusZoneId ? 4 : 2,
+            dashArray: '6 4',
+            fillColor: ZONE_COLOR,
+            fillOpacity: z.open > 0 ? 0.3 : 0.15,
+          }}
+          eventHandlers={{ click: () => onZoneSelect(z.id) }}
+        >
+          <Tooltip direction="top" sticky>
+            시민 제보 구역 · {z.label} · 제보 {z.reports}건{z.open > 0 ? ` (연결 전 ${z.open})` : ''} · 기한 {z.nearestDueAt}
+          </Tooltip>
+        </Rectangle>
+      ))}
       {buildings.map((b) => (
         <Marker
           key={b.id}
@@ -82,6 +112,7 @@ export default function PriorityMap({ buildings, selectedId, onSelect }: Priorit
           <Tooltip direction="top" offset={[0, -10]}>
             {b.address} · {SOS_STYLE[b.sos.color].label}
             {b.units > 1 ? ` · ${b.units}호` : ''}
+            {b.dDay != null ? ` · 제보 현장조사 ${dDayLabel(b.dDay)}` : ''}
           </Tooltip>
         </Marker>
       ))}

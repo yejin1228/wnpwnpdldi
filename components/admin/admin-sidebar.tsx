@@ -11,9 +11,9 @@ import {
 import { BrandMark } from '@/components/site/brand-mark'
 import { cn } from '@/lib/utils'
 
-const MENU: { label: string; icon: LucideIcon; active?: boolean }[] = [
-  { label: 'SOS 긴급도 지도', icon: Map, active: true },
-  { label: '시민 제보 목록', icon: MessageSquareText },
+const MENU: { label: string; icon: LucideIcon; active?: boolean; href?: string }[] = [
+  { label: 'SOS 긴급도 지도', icon: Map, active: true, href: '#map' },
+  { label: '시민 제보 목록', icon: MessageSquareText, href: '#reports' },
   { label: '현장점검 기록', icon: ClipboardCheck },
   { label: '건물 목록', icon: Building2 },
   { label: '통계·리포트', icon: BarChart3 },
@@ -34,18 +34,28 @@ export function AdminSidebar() {
         <ul className="flex flex-col gap-1">
           {MENU.map((m) => (
             <li key={m.label}>
-              <span
-                aria-current={m.active ? 'page' : undefined}
-                aria-disabled={!m.active}
-                className={cn(
-                  'flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm',
-                  m.active ? 'bg-white/10 font-semibold' : 'cursor-not-allowed text-primary-foreground/55',
-                )}
-              >
-                <m.icon className="size-4" aria-hidden="true" />
-                <span className="flex-1">{m.label}</span>
-                {!m.active && <span className="text-[11px] text-primary-foreground/60">준비 중</span>}
-              </span>
+              {m.href ? (
+                <a
+                  href={m.href}
+                  aria-current={m.active ? 'page' : undefined}
+                  className={cn(
+                    'flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm hover:bg-white/10',
+                    m.active && 'bg-white/10 font-semibold',
+                  )}
+                >
+                  <m.icon className="size-4" aria-hidden="true" />
+                  <span className="flex-1">{m.label}</span>
+                </a>
+              ) : (
+                <span
+                  aria-disabled
+                  className="flex cursor-not-allowed items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-primary-foreground/55"
+                >
+                  <m.icon className="size-4" aria-hidden="true" />
+                  <span className="flex-1">{m.label}</span>
+                  <span className="text-[11px] text-primary-foreground/60">준비 중</span>
+                </span>
+              )}
             </li>
           ))}
         </ul>

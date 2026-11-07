@@ -103,6 +103,7 @@ export interface CitizenReport {
   dueAt: string
   dDay: number
   status: 'OPEN' | 'LINKED' | 'UNREGISTERED'
+  zoneId: string
   zoneLabel: string
   inspectedAt: string | null
   /** 담당자 화면 전용: 구역 안 등록 빈집 */

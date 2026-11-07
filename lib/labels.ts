@@ -24,3 +24,10 @@ export const EXPOSURE_LABEL = {
   cluster: '같은 지번·100m 안 다른 빈집',
   density: '주변 주택 밀집(100m 안 44동 이상)',
 } as const
+
+/** 현장조사 기한 표시: D-18, D-day, 기한 3일 지남 */
+export function dDayLabel(d: number): string {
+  if (d < 0) return `기한 ${-d}일 지남`
+  if (d === 0) return 'D-day'
+  return `D-${d}`
+}

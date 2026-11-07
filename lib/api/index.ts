@@ -79,6 +79,7 @@ function toCitizenReport(r: Report): CitizenReport {
     dueAt: r.dueAt,
     dDay: r.dDay,
     status: r.status,
+    zoneId: r.zone.id,
     zoneLabel: r.zone.label,
     inspectedAt: r.inspectedAt,
     candidateIds: r.candidateSiteIds,
