@@ -3,21 +3,8 @@
 import 'leaflet/dist/leaflet.css'
 import { useEffect } from 'react'
 import { CircleMarker, MapContainer, Rectangle, TileLayer, useMap, useMapEvents } from 'react-leaflet'
-import type { LatLngBoundsExpression } from 'leaflet'
+import { gridBounds } from '@/lib/grid'
 import { ANSAN_CENTER } from '@/lib/mock/data'
-
-/** 250m 격자 크기 (위경도 근사값) */
-const GRID_LAT = 0.00225
-const GRID_LNG = 0.0028
-
-export function gridBounds(lat: number, lng: number): LatLngBoundsExpression {
-  const la = Math.floor(lat / GRID_LAT) * GRID_LAT
-  const ln = Math.floor(lng / GRID_LNG) * GRID_LNG
-  return [
-    [la, ln],
-    [la + GRID_LAT, ln + GRID_LNG],
-  ]
-}
 
 function ClickHandler({ onPick }: { onPick: (lat: number, lng: number) => void }) {
   useMapEvents({ click: (e) => onPick(e.latlng.lat, e.latlng.lng) })

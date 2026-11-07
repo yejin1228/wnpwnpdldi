@@ -1,0 +1,15 @@
+{
+  "_설명": "AI 판독 캐시. AI 호출이 실패하거나 키가 없으면 여기서 답한다(source: CACHE). byImageHash는 사진 SHA-256 → 응답. 개발 서버(npm run dev)에서 LIVE 판독이 성공하면 자동으로 추가된다. 맞는 사진이 없으면 default를 쓴다.",
+  "default": {
+    "observations": {
+      "security": { "status": "DETECTED", "evidence": "출입문 개방, 창호 1곳 파손" },
+      "fire": { "status": "UNKNOWN", "evidence": "전기·가스 설비가 사진에 없음" },
+      "hygiene": { "status": "DETECTED", "evidence": "현관 앞 쓰레기 봉투 적치" },
+      "collapse": { "status": "UNKNOWN", "evidence": "구조부가 사진으로 확인 불가" },
+      "landscape": { "status": "NOT_DETECTED", "evidence": "외벽 오염·낙서 없음" }
+    },
+    "draftJournal": "출입문이 열려 있고 창호 1곳이 파손되어 무단출입 우려가 있음. 현관 앞에 쓰레기가 쌓여 있어 정리가 필요함.",
+    "recommendedAction": "출입구 봉쇄"
+  },
+  "byImageHash": {}
+}

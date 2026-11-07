@@ -1,60 +1,62 @@
 'use client'
 
 import useSWR from 'swr'
-import { AlertTriangle, CalendarCheck, Gauge, House, MessageSquareText, type LucideIcon } from 'lucide-react'
 import { getAdminSummary } from '@/lib/api'
+import { cn } from '@/lib/utils'
 
 interface Stat {
   label: string
   value: string
   unit?: string
   note?: string
-  icon: LucideIcon
+  /** 숫자 색. 흰 배경에서 큰 글자 대비 3:1 이상이 되도록 SOS 색을 한 단계 진하게 쓴다. */
+  numColor?: string
   highlight?: boolean
 }
 
+/**
+ * 현황판 한 줄: 칸마다 카드를 따로 만들지 않고, 테두리 하나 안을 가는 선으로 나눈다.
+ * SOS 칸은 장식 없이 숫자 자체를 그 색으로 칠한다.
+ */
 export function SummaryCards() {
-  const { data } = useSWR('admin-summary', getAdminSummary)
+  const { data } = useSWR('admin-summary', getAdminSummary, { refreshInterval: 5000 })
+  const v = (n: number | undefined) => (n == null ? '–' : String(n))
 
   const stats: Stat[] = [
-    { label: '정기점검 관리 대상', value: data ? String(data.regularTargets) : '–', unit: '호', icon: House, highlight: true },
-    { label: '신규 시민 제보', value: data ? String(data.newReports) : '–', unit: '건', icon: MessageSquareText },
     {
-      label: '고위험(긴급)',
-      value: data?.highRisk != null ? String(data.highRisk) : '–',
-      note: data?.highRisk == null ? 'SOS 구간 확정 후 집계' : undefined,
-      icon: AlertTriangle,
+      label: '관리 대상 빈집',
+      value: v(data?.totalHouses),
+      unit: '호',
+      note: data ? `점검 장소 ${data.totalSites}곳` : undefined,
+      highlight: true,
     },
-    { label: '이번 주 점검 예정', value: data ? String(data.scheduledThisWeek) : '–', unit: '건', icon: CalendarCheck },
-    { label: '점검 완료율', value: data ? String(data.completionRate) : '–', unit: '%', icon: Gauge },
+    { label: '신규 시민 제보', value: v(data?.newReports), unit: '건', note: '30일 안 현장조사' },
+    { label: '긴급 (진한 빨강)', value: v(data?.darkRed), unit: '곳', note: '1단계 위해 확인, 조치 전', numColor: '#7f1d1d' },
+    { label: '긴급 (빨강)', value: v(data?.red), unit: '곳', note: '위해 확인·시 판정, 조치 전', numColor: '#dc2626' },
+    { label: '확인 필요 (주황)', value: v(data?.orange), unit: '곳', note: '점검 기한 지남', numColor: '#c2410c' },
+    { label: '정상 (초록)', value: v(data?.green), unit: '곳', note: '기한 안·조치 완료', numColor: '#15803d' },
   ]
 
   return (
-    <ul className="grid grid-cols-2 gap-3 md:grid-cols-3 xl:grid-cols-5">
+    <ul className="grid grid-cols-2 gap-px overflow-hidden rounded-lg border bg-border md:grid-cols-3 xl:grid-cols-6">
       {stats.map((s) => (
-        <li
-          key={s.label}
-          className={
-            s.highlight
-              ? 'rounded-xl bg-primary p-4 text-primary-foreground'
-              : 'rounded-xl border bg-card p-4'
-          }
-        >
-          <div className="flex items-center justify-between">
-            <span className={s.highlight ? 'text-xs text-primary-foreground/70' : 'text-xs text-muted-foreground'}>
-              {s.label}
+        <li key={s.label} className={cn('min-w-0 px-4 py-3', s.highlight ? 'bg-primary text-primary-foreground' : 'bg-card')}>
+          <span className={cn('block text-sm font-medium', s.highlight ? 'text-primary-foreground/80' : 'text-muted-foreground')}>
+            {s.label}
+          </span>
+          <p className="mt-1 flex items-baseline gap-1">
+            <span className="text-4xl font-bold tabular-nums" style={s.numColor ? { color: s.numColor } : undefined}>
+              {s.value}
             </span>
-            <s.icon className={s.highlight ? 'size-4 text-primary-foreground/60' : 'size-4 text-brand'} aria-hidden="true" />
-          </div>
-          <p className="mt-2 flex items-baseline gap-1">
-            <span className="text-2xl font-bold tabular-nums">{s.value}</span>
             {s.unit && s.value !== '–' && (
-              <span className={s.highlight ? 'text-sm text-primary-foreground/70' : 'text-sm text-muted-foreground'}>
-                {s.unit}
-              </span>
+              <span className={cn('text-base', s.highlight ? 'text-primary-foreground/80' : 'text-muted-foreground')}>{s.unit}</span>
             )}
           </p>
-          {s.note && <p className="mt-1 text-[11px] text-muted-foreground">{s.note}</p>}
+          {s.note && (
+            <p className={cn('mt-0.5 truncate text-xs', s.highlight ? 'text-primary-foreground/80' : 'text-muted-foreground')}>
+              {s.note}
+            </p>
+          )}
         </li>
       ))}
     </ul>

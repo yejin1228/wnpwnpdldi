@@ -25,3 +25,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+# 키 예시 파일은 올린다
+!.env.example
+
+# AI 판독 로컬 캐시(이 PC에서 자동 저장)
+/fixtures/ai-cache.local.json
