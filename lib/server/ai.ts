@@ -29,7 +29,7 @@ interface CacheFile {
 
 const OBS_KEYS: ObsKey[] = ['security', 'fire', 'hygiene', 'collapse', 'landscape']
 const OBS_STATUS: ObsStatus[] = ['DETECTED', 'NOT_DETECTED', 'UNKNOWN']
-const TIMEOUT_MS = 20_000
+const TIMEOUT_MS = 12_000
 const CACHE_PATH = path.join(process.cwd(), 'fixtures', 'ai-cache.json')
 const LOCAL_CACHE_PATH = path.join(process.cwd(), 'fixtures', 'ai-cache.local.json')
 
