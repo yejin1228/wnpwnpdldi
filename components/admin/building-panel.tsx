@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import useSWR from 'swr'
 import { Bot, CircleCheck, Hammer, LoaderCircle, MapPin, ShieldCheck, Upload, X } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
@@ -30,10 +30,22 @@ interface BuildingPanelProps {
   onUpdated: (building: Building) => void
 }
 
-function Section({ step, active, done, children }: { step: number; active: boolean; done: boolean; children: React.ReactNode }) {
+function Section({
+  step,
+  active,
+  done,
+  children,
+  sectionRef,
+}: {
+  step: number
+  active: boolean
+  done: boolean
+  children: React.ReactNode
+  sectionRef?: React.Ref<HTMLElement>
+}) {
   return (
-    <section aria-labelledby={`step-${step}`} className="border-b px-5 py-5 last:border-b-0">
-      <h3 id={`step-${step}`} className="flex items-center gap-2 text-sm font-semibold">
+    <section ref={sectionRef} aria-labelledby={`step-${step}`} className="scroll-mt-2 border-b px-5 py-5 last:border-b-0">
+      <h3 id={`step-${step}`} className="flex items-center gap-2 text-base font-semibold">
         <span
           className={cn(
             'flex size-6 items-center justify-center rounded-full text-xs',
@@ -52,12 +64,12 @@ function Section({ step, active, done, children }: { step: number; active: boole
 function SosBadge({ building }: { building: Building }) {
   const s = SOS_STYLE[building.sos.color]
   return (
-    <div className="rounded-lg p-3 text-white" style={{ background: s.color }}>
-      <p className="text-[11px] text-white/80">SOS 긴급도</p>
-      <p className="mt-0.5 text-lg font-bold">
+    <div className="rounded-lg p-3" style={{ background: s.color, color: s.ink }}>
+      <p className="text-xs font-medium">SOS 긴급도</p>
+      <p className="mt-0.5 text-xl font-bold">
         {s.label} · {s.action}
       </p>
-      <ul className="mt-1.5 flex flex-col gap-0.5 text-xs text-white/90">
+      <ul className="mt-1.5 flex flex-col gap-0.5 text-sm">
         {building.sos.reasons.map((r) => (
           <li key={r}>· {r}</li>
         ))}
@@ -82,6 +94,19 @@ export function BuildingPanel({ building, onClose, onUpdated }: BuildingPanelPro
 
   const currentStep = confirmed ? 5 : reading ? 4 : uploadedCount ? 3 : 2
   const needsAction = !building.actionDone && (building.hazardStage !== null || building.cityPending)
+  const aiSectionRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose()
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [onClose])
+
+  useEffect(() => {
+    if (reading) aiSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }, [reading])
 
   const upload = async () => {
     setUploading(true)
@@ -123,11 +148,11 @@ export function BuildingPanel({ building, onClose, onUpdated }: BuildingPanelPro
     <div className="flex h-full flex-col">
       <header className="flex items-start justify-between gap-3 border-b px-5 py-4">
         <div>
-          <p className="text-xs text-muted-foreground">
+          <p className="text-sm text-muted-foreground">
             {building.types.join('·')} · {building.units}호 · 시 등급 {building.grade} · {building.plan}
             {building.plan === '상시관리' ? '' : ` (시행 '${building.planYear})`}
           </p>
-          <h2 className="mt-0.5 flex items-center gap-1.5 font-semibold text-primary">
+          <h2 className="mt-0.5 flex items-center gap-1.5 text-lg font-bold text-primary">
             <MapPin className="size-4 text-brand" aria-hidden="true" />
             {building.address}
           </h2>
@@ -136,7 +161,7 @@ export function BuildingPanel({ building, onClose, onUpdated }: BuildingPanelPro
           type="button"
           onClick={onClose}
           className="flex size-8 items-center justify-center rounded-lg hover:bg-muted"
-          aria-label="패널 닫기"
+          aria-label="패널 닫기 (Esc)"
         >
           <X className="size-4" />
         </button>
@@ -155,29 +180,29 @@ export function BuildingPanel({ building, onClose, onUpdated }: BuildingPanelPro
         ))}
       </ol>
 
-      <div className="flex-1 overflow-y-auto">
+      <div className="min-h-0 flex-1 overflow-y-auto">
         <Section step={1} active={false} done>
           <SosBadge building={building} />
           <div className="mt-2 grid grid-cols-2 gap-2">
             <div className="rounded-lg bg-muted p-3">
-              <p className="text-[11px] text-muted-foreground">다음 점검일</p>
-              <p className="mt-1 text-sm font-semibold">{building.sos.nextInspectionAt}</p>
+              <p className="text-xs text-muted-foreground">다음 점검일</p>
+              <p className="mt-1 text-base font-semibold tabular-nums">{building.sos.nextInspectionAt}</p>
             </div>
             <div className="rounded-lg bg-muted p-3">
-              <p className="text-[11px] text-muted-foreground">점검 주기 · 최근 확인</p>
-              <p className="mt-1 text-sm font-semibold">
+              <p className="text-xs text-muted-foreground">점검 주기 · 최근 확인</p>
+              <p className="mt-1 text-base font-semibold tabular-nums">
                 {building.cycleMonths}개월 · {building.lastChecked}
               </p>
             </div>
           </div>
           <div className="mt-3">
-            <p className="text-xs font-semibold text-muted-foreground">피해 범위 {building.exposureCount}/3</p>
+            <p className="text-sm font-semibold text-muted-foreground">피해 범위 {building.exposureCount}/3</p>
             <ul className="mt-1.5 flex flex-wrap gap-1.5">
               {(Object.keys(EXPOSURE_LABEL) as (keyof typeof EXPOSURE_LABEL)[]).map((k) => (
                 <li
                   key={k}
                   className={cn(
-                    'rounded-full px-2 py-0.5 text-[11px]',
+                    'rounded-full px-2.5 py-0.5 text-xs',
                     building.exposure[k] ? 'bg-primary/10 font-medium text-primary' : 'bg-muted text-muted-foreground line-through',
                   )}
                 >
@@ -188,19 +213,19 @@ export function BuildingPanel({ building, onClose, onUpdated }: BuildingPanelPro
           </div>
 
           <div className="mt-4">
-            <p className="text-xs font-semibold text-muted-foreground">시민 제보 {reports?.length ?? building.reportCount}건</p>
+            <p className="text-sm font-semibold text-muted-foreground">시민 제보 {reports?.length ?? building.reportCount}건</p>
             {isLoading ? (
               <div className="mt-2 h-16 animate-pulse rounded-lg bg-muted" />
             ) : reports && reports.length > 0 ? (
               <ul className="mt-2 flex flex-col gap-2">
                 {reports.map((r) => (
-                  <li key={r.id} className="rounded-lg border border-yellow-300 bg-yellow-50 p-3">
+                  <li key={r.id} className="rounded-lg border border-violet-300 bg-violet-50 p-3 text-violet-950">
                     <div className="flex items-center justify-between gap-2">
                       <Badge variant="secondary">{categoryLabel(r.category)}</Badge>
-                      <span className="text-[11px] text-muted-foreground">{r.createdAt}</span>
+                      <span className="text-xs tabular-nums text-violet-800">{r.createdAt}</span>
                     </div>
-                    <p className="mt-1.5 text-sm">{r.title}</p>
-                    <p className="mt-1 text-[11px] text-muted-foreground">
+                    <p className="mt-1.5 text-base font-medium">{r.title}</p>
+                    <p className="mt-1 text-xs text-violet-800">
                       {r.id} · 사진 {r.photoCount}장
                     </p>
                   </li>
@@ -212,10 +237,10 @@ export function BuildingPanel({ building, onClose, onUpdated }: BuildingPanelPro
           </div>
 
           <div className="mt-4">
-            <p className="text-xs font-semibold text-muted-foreground">기록</p>
+            <p className="text-sm font-semibold text-muted-foreground">기록</p>
             <ol className="mt-2 flex flex-col gap-1.5 border-l-2 pl-3">
               {building.timeline.map((t, i) => (
-                <li key={`${t.date}-${i}`} className="text-xs">
+                <li key={`${t.date}-${i}`} className="text-sm">
                   <span className="font-medium">
                     {t.date} · {t.type}
                   </span>
@@ -240,7 +265,7 @@ export function BuildingPanel({ building, onClose, onUpdated }: BuildingPanelPro
           )}
         </Section>
 
-        <Section step={3} active={currentStep === 3} done={reading !== null}>
+        <Section step={3} active={currentStep === 3} done={reading !== null} sectionRef={aiSectionRef}>
           {readingLoading ? (
             <p className="flex items-center gap-2 text-sm text-muted-foreground" aria-live="polite">
               <LoaderCircle className="size-4 animate-spin" aria-hidden="true" />
@@ -260,7 +285,7 @@ export function BuildingPanel({ building, onClose, onUpdated }: BuildingPanelPro
                   </div>
                 ))}
               </dl>
-              <p className="mt-3 text-[11px] text-muted-foreground">AI 결과는 후보입니다. 위해 단계는 담당자가 확정합니다.</p>
+              <p className="mt-3 text-xs text-muted-foreground">AI 결과는 후보입니다. 위해 단계는 담당자가 확정합니다.</p>
             </div>
           ) : (
             <p className="text-sm text-muted-foreground">현장 사진을 업로드하면 판독 결과가 표시됩니다.</p>
@@ -269,7 +294,11 @@ export function BuildingPanel({ building, onClose, onUpdated }: BuildingPanelPro
 
         <Section step={4} active={currentStep >= 4} done={building.actionDone}>
           <div className="flex flex-col gap-3">
-            {!confirmed && (
+            {confirmed ? (
+              <p className="text-sm text-muted-foreground">
+                위해 단계를 확정했습니다. 결과와 다음 할 일은 아래에 있습니다.
+              </p>
+            ) : (
               <>
                 <div className="flex flex-col gap-2">
                   <Label htmlFor="stage-select">위해 단계 (빈집법 제11조)</Label>
@@ -296,29 +325,43 @@ export function BuildingPanel({ building, onClose, onUpdated }: BuildingPanelPro
                     rows={3}
                   />
                 </div>
-                <Button className="h-10 w-full" disabled={!reading || saving} onClick={confirm}>
-                  {saving ? <LoaderCircle className="animate-spin" data-icon="inline-start" /> : <ShieldCheck data-icon="inline-start" />}
-                  {saving ? '저장 중...' : '위해 단계 확정'}
-                </Button>
               </>
-            )}
-
-            {confirmed && needsAction && (
-              <Button className="h-10 w-full" variant="secondary" disabled={acting} onClick={act}>
-                {acting ? <LoaderCircle className="animate-spin" data-icon="inline-start" /> : <Hammer data-icon="inline-start" />}
-                {acting ? '저장 중...' : '조치 완료 (봉쇄 완료 사진 등록)'}
-              </Button>
-            )}
-
-            {confirmed && (
-              <p className="rounded-lg bg-muted p-3 text-sm" aria-live="polite">
-                지금 색: <b style={{ color: SOS_STYLE[building.sos.color].color }}>{SOS_STYLE[building.sos.color].label}</b> · 다음 점검{' '}
-                {building.sos.nextInspectionAt}
-              </p>
             )}
           </div>
         </Section>
       </div>
+
+      <footer className="shrink-0 border-t bg-card px-5 py-3">
+        {!confirmed && !reading && (
+          <p className="text-sm text-muted-foreground">현장 사진을 올리면 AI 판독 뒤 위해 단계를 확정할 수 있습니다.</p>
+        )}
+
+        {!confirmed && reading && (
+          <Button className="h-11 w-full text-base" disabled={saving} onClick={confirm}>
+            {saving ? <LoaderCircle className="animate-spin" data-icon="inline-start" /> : <ShieldCheck data-icon="inline-start" />}
+            {saving ? '저장 중...' : '위해 단계 확정'}
+          </Button>
+        )}
+
+        {confirmed && (
+          <div className="flex flex-col gap-2">
+            <p
+              className="flex items-center justify-between gap-3 rounded-lg px-3 py-2"
+              style={{ background: SOS_STYLE[building.sos.color].color, color: SOS_STYLE[building.sos.color].ink }}
+              aria-live="polite"
+            >
+              <span className="text-base font-bold">지금 색: {SOS_STYLE[building.sos.color].label}</span>
+              <span className="text-sm font-medium tabular-nums">다음 점검 {building.sos.nextInspectionAt}</span>
+            </p>
+            {needsAction && (
+              <Button className="h-11 w-full text-base" variant="secondary" disabled={acting} onClick={act}>
+                {acting ? <LoaderCircle className="animate-spin" data-icon="inline-start" /> : <Hammer data-icon="inline-start" />}
+                {acting ? '저장 중...' : '조치 완료 (봉쇄 완료 사진 등록)'}
+              </Button>
+            )}
+          </div>
+        )}
+      </footer>
     </div>
   )
 }

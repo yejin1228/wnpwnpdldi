@@ -32,11 +32,12 @@ export interface SosResult {
   reasons: string[]
 }
 
-export const SOS_STYLE: Record<SosColor, { label: string; color: string; action: string }> = {
-  DARK_RED: { label: '진한 빨강', color: '#7f1d1d', action: '조치' },
-  RED: { label: '빨강', color: '#dc2626', action: '조치·상태 확인' },
-  ORANGE: { label: '주황', color: '#f97316', action: '확인' },
-  GREEN: { label: '초록', color: '#16a34a', action: '정상 관리' },
+/** ink: 그 색 위에 올리는 글자색. 주황·초록은 흰 글자 대비가 4.5:1에 못 미쳐 어두운 글자를 쓴다. */
+export const SOS_STYLE: Record<SosColor, { label: string; color: string; ink: string; action: string }> = {
+  DARK_RED: { label: '진한 빨강', color: '#7f1d1d', ink: '#ffffff', action: '조치' },
+  RED: { label: '빨강', color: '#dc2626', ink: '#ffffff', action: '조치·상태 확인' },
+  ORANGE: { label: '주황', color: '#f97316', ink: '#1c1917', action: '확인' },
+  GREEN: { label: '초록', color: '#16a34a', ink: '#052e16', action: '정상 관리' },
 }
 
 export const SOS_LEGEND: { color: SosColor; text: string }[] = [
@@ -46,7 +47,8 @@ export const SOS_LEGEND: { color: SosColor; text: string }[] = [
   { color: 'GREEN', text: '기한 안 확인·이상 없음 또는 조치 완료' },
 ]
 
-export const ZONE_COLOR = '#eab308'
+/** 시민 제보 구역 색. 지도 도로(노랑·주황)와 주황 점과 헷갈리지 않게 보라를 쓴다. */
+export const ZONE_COLOR = '#7c3aed'
 
 export const STAGE_LABEL: Record<1 | 2 | 3, string> = {
   1: '1단계 · 붕괴·화재·범죄 우려',

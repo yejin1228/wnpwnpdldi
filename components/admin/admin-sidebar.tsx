@@ -27,7 +27,7 @@ export function AdminSidebar() {
         <BrandMark className="bg-brand" />
         <span className="flex flex-col leading-tight">
           <span className="text-sm font-semibold">빈집 안전관리</span>
-          <span className="text-xs text-primary-foreground/60">시 담당자</span>
+          <span className="text-xs text-primary-foreground/75">시 담당자</span>
         </span>
       </Link>
       <nav aria-label="담당자 메뉴" className="flex-1 px-3 py-4">
@@ -44,7 +44,7 @@ export function AdminSidebar() {
               >
                 <m.icon className="size-4" aria-hidden="true" />
                 <span className="flex-1">{m.label}</span>
-                {!m.active && <span className="text-[10px] text-primary-foreground/40">준비 중</span>}
+                {!m.active && <span className="text-[11px] text-primary-foreground/60">준비 중</span>}
               </span>
             </li>
           ))}

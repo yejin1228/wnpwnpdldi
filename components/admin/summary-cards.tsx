@@ -39,22 +39,22 @@ export function SummaryCards() {
           key={s.label}
           className={s.highlight ? 'rounded-xl bg-primary p-4 text-primary-foreground' : 'rounded-xl border bg-card p-4'}
         >
-          <div className="flex items-center justify-between">
-            <span className={s.highlight ? 'text-xs text-primary-foreground/70' : 'text-xs text-muted-foreground'}>
+          <div className="flex items-center justify-between gap-2">
+            <span className={s.highlight ? 'text-sm font-medium text-primary-foreground/80' : 'text-sm font-medium text-muted-foreground'}>
               {s.label}
             </span>
-            <s.icon className={s.highlight ? 'size-4 text-primary-foreground/60' : 'size-4 text-brand'} aria-hidden="true" />
+            <s.icon className={s.highlight ? 'size-4 text-primary-foreground/70' : 'size-4 text-brand'} aria-hidden="true" />
           </div>
-          <p className="mt-2 flex items-baseline gap-1">
-            <span className="text-2xl font-bold tabular-nums">{s.value}</span>
+          <p className="mt-1 flex items-baseline gap-1">
+            <span className="text-4xl font-bold tabular-nums">{s.value}</span>
             {s.unit && s.value !== '–' && (
-              <span className={s.highlight ? 'text-sm text-primary-foreground/70' : 'text-sm text-muted-foreground'}>
+              <span className={s.highlight ? 'text-base text-primary-foreground/80' : 'text-base text-muted-foreground'}>
                 {s.unit}
               </span>
             )}
           </p>
           {s.note && (
-            <p className={s.highlight ? 'mt-1 text-[11px] text-primary-foreground/70' : 'mt-1 text-[11px] text-muted-foreground'}>
+            <p className={s.highlight ? 'mt-0.5 text-xs text-primary-foreground/80' : 'mt-0.5 text-xs text-muted-foreground'}>
               {s.note}
             </p>
           )}
