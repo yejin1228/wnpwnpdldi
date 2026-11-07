@@ -4,7 +4,9 @@
  * - 호출·파싱이 실패하면 오류를 내지 않고 캐시로 답한다(source: CACHE).
  * - 위해 단계 후보(suggestedStage)는 모델이 아니라 관찰 결과에서 규칙으로 뽑는다.
  *   보안·화재·붕괴 → 1단계, 위생 → 2단계, 경관 → 3단계, 해당 없음 → null
- * - 개발 서버에서 LIVE가 성공하면 그 사진 응답을 캐시에 저장한다(인터넷이 끊겨도 같은 결과).
+ * - 개발 서버에서 LIVE가 성공하면 그 사진 응답을 로컬 캐시(fixtures/ai-cache.local.json, git 제외)에
+ *   저장한다. 인터넷이 끊겨도 같은 사진이면 같은 결과가 나온다. 테스트 사진이 git에 섞이지 않는다.
+ *   시연 사진 결과를 팀과 나누려면 로컬 캐시의 항목을 ai-cache.json의 byImageHash로 옮긴다.
  */
 import { createHash } from 'node:crypto'
 import { readFile, writeFile } from 'node:fs/promises'
@@ -29,6 +31,7 @@ const OBS_KEYS: ObsKey[] = ['security', 'fire', 'hygiene', 'collapse', 'landscap
 const OBS_STATUS: ObsStatus[] = ['DETECTED', 'NOT_DETECTED', 'UNKNOWN']
 const TIMEOUT_MS = 20_000
 const CACHE_PATH = path.join(process.cwd(), 'fixtures', 'ai-cache.json')
+const LOCAL_CACHE_PATH = path.join(process.cwd(), 'fixtures', 'ai-cache.local.json')
 
 export const PROMPT = `너는 안산시 빈집 담당 공무원의 정기 현장 점검을 돕는 보조자다.
 첨부한 빈집 사진 1장을 보고 아래 JSON 형식으로만 답한다. JSON 밖에는 아무것도 쓰지 않는다.
@@ -139,22 +142,38 @@ async function callOpenAI(b64: string, mime: string): Promise<string> {
   return text
 }
 
-async function loadCache(): Promise<CacheFile> {
+async function readLocalCache(): Promise<Record<string, CacheEntry>> {
   try {
-    return JSON.parse(await readFile(CACHE_PATH, 'utf8')) as CacheFile
+    const local = JSON.parse(await readFile(LOCAL_CACHE_PATH, 'utf8')) as { byImageHash?: Record<string, CacheEntry> }
+    return local.byImageHash ?? {}
   } catch {
-    // 배포 환경 등 파일을 못 읽으면 번들에 들어간 캐시를 쓴다
-    return bundledCache as unknown as CacheFile
+    return {}
   }
 }
 
-async function saveToCache(hash: string, entry: CacheEntry) {
+/** 공유 캐시(ai-cache.json) + 이 PC의 로컬 캐시. 같은 사진이면 로컬이 우선 */
+export async function loadCache(): Promise<CacheFile> {
+  let shared: CacheFile
+  try {
+    shared = JSON.parse(await readFile(CACHE_PATH, 'utf8')) as CacheFile
+  } catch {
+    // 배포 환경 등 파일을 못 읽으면 번들에 들어간 캐시를 쓴다
+    shared = bundledCache as unknown as CacheFile
+  }
+  return { ...shared, byImageHash: { ...shared.byImageHash, ...(await readLocalCache()) } }
+}
+
+/** LIVE 결과를 로컬 캐시에만 쓴다(git 제외 파일). 공유 캐시는 건드리지 않는다 */
+export async function saveToCache(hash: string, entry: CacheEntry) {
   if (process.env.NODE_ENV === 'production') return
   try {
-    const cache = await loadCache()
-    cache.byImageHash = { ...cache.byImageHash, [hash]: { ...entry, savedAt: new Date().toISOString() } }
-    await writeFile(CACHE_PATH, `${JSON.stringify(cache, null, 2)}\n`, 'utf8')
-    console.info(`[ai] 캐시 저장 ${hash.slice(0, 12)}…`)
+    const byImageHash = { ...(await readLocalCache()), [hash]: { ...entry, savedAt: new Date().toISOString() } }
+    const body = {
+      _설명: '이 PC에서 LIVE 판독에 성공한 사진의 응답(자동 저장, git 제외). 지워도 앱은 동작한다.',
+      byImageHash,
+    }
+    await writeFile(LOCAL_CACHE_PATH, `${JSON.stringify(body, null, 2)}\n`, 'utf8')
+    console.info(`[ai] 로컬 캐시 저장 ${hash.slice(0, 12)}…`)
   } catch (e) {
     console.warn('[ai] 캐시 저장 실패', e)
   }
