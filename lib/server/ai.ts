@@ -231,7 +231,7 @@ export async function analyzePhoto(bytes: Buffer, mime: string, fileName = ''): 
   const demo = fileName ? DEMO_PHOTOS.find((d) => d.match.test(fileName)) : undefined
   if (demo) {
     // 판독하는 시간처럼 보이도록 잠깐 기다린 뒤 답한다
-    await new Promise((r) => setTimeout(r, 2000))
+    await new Promise((r) => setTimeout(r, 1200))
     console.info(`[ai] 시연 사진 즉시 응답 · ${fileName}`)
     return result(demo.entry, 'LIVE', 'gemini')
   }
