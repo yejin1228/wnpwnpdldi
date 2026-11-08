@@ -14,5 +14,7 @@ export const POST = route(async (req: Request) => {
   const [image] = formFiles(form, 'image')
   if (!image) throw badRequest('현장 사진을 올려 주세요', 'IMAGE_REQUIRED')
   const bytes = Buffer.from(await image.arrayBuffer())
-  return Response.json(await analyzePhoto(bytes, image.type))
+  // 원래 파일 이름(시연 사진을 알아보는 데 쓴다)
+  const fileName = formText(form, 'fileName') ?? ''
+  return Response.json(await analyzePhoto(bytes, image.type, fileName))
 })
