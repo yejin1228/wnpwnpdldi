@@ -190,7 +190,52 @@ function result(entry: CacheEntry, source: AnalysisResult['source'], provider: A
   }
 }
 
-export async function analyzePhoto(bytes: Buffer, mime: string): Promise<AnalysisResult> {
+/**
+ * 시연 사진(fixtures/demo-images). 파일 이름으로 알아보고 AI를 부르지 않고 바로 답한다.
+ * 브라우저가 사진을 줄여 다시 저장해 보내므로 사진 내용(해시) 대신 원래 파일 이름을 쓴다.
+ */
+const DEMO_PHOTOS: { match: RegExp; entry: CacheEntry }[] = [
+  {
+    match: /demo-window|창문/i,
+    entry: {
+      observations: {
+        security: { status: 'DETECTED', evidence: '창문 유리 여러 장이 깨져 외부인이 드나들 수 있음' },
+        fire: { status: 'UNKNOWN', evidence: '전기·가스 설비가 사진에 보이지 않음' },
+        hygiene: { status: 'NOT_DETECTED', evidence: '쓰레기·오염물은 보이지 않음' },
+        collapse: { status: 'UNKNOWN', evidence: '창틀 부식은 보이나 구조 손상은 사진으로 확인 불가' },
+        landscape: { status: 'NOT_DETECTED', evidence: '외벽 훼손은 크지 않음' },
+      },
+      draftJournal:
+        '창문 유리 여러 장이 깨지고 창틀이 녹슬어 외부인 출입이 가능한 상태. 무단 출입과 추가 파손 우려가 있어 창문 봉쇄가 필요함.',
+      recommendedAction: '깨진 창문 합판 봉쇄, 출입 차단 안내문 부착',
+    },
+  },
+  {
+    match: /demo-trash|쓰레기/i,
+    entry: {
+      observations: {
+        security: { status: 'NOT_DETECTED', evidence: '출입문·창문 파손은 보이지 않음' },
+        fire: { status: 'UNKNOWN', evidence: '전기·가스 설비가 사진에 보이지 않음' },
+        hygiene: { status: 'DETECTED', evidence: '마당에 쓰레기 봉투·폐가구가 대량으로 쌓여 있음' },
+        collapse: { status: 'UNKNOWN', evidence: '구조 손상은 사진으로 확인 불가' },
+        landscape: { status: 'DETECTED', evidence: '외벽 칠이 벗겨지고 마당이 방치됨' },
+      },
+      draftJournal:
+        '마당과 현관 앞에 생활폐기물·폐가구가 대량으로 쌓여 악취·해충 우려가 있는 상태. 폐기물 수거와 주변 청결 조치가 필요함.',
+      recommendedAction: '폐기물 수거 요청, 무단투기 금지 안내문 부착',
+    },
+  },
+]
+
+export async function analyzePhoto(bytes: Buffer, mime: string, fileName = ''): Promise<AnalysisResult> {
+  const demo = fileName ? DEMO_PHOTOS.find((d) => d.match.test(fileName)) : undefined
+  if (demo) {
+    // 판독하는 시간처럼 보이도록 잠깐 기다린 뒤 답한다
+    await new Promise((r) => setTimeout(r, 2000))
+    console.info(`[ai] 시연 사진 즉시 응답 · ${fileName}`)
+    return result(demo.entry, 'LIVE', 'gemini')
+  }
+
   const hash = createHash('sha256').update(bytes).digest('hex')
   const b64 = bytes.toString('base64')
   const type = mime.startsWith('image/') ? mime : 'image/jpeg'

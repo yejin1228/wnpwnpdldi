@@ -215,6 +215,7 @@ export async function getAiReading(buildingId: string): Promise<AiReading> {
   const image = await shrink(photo)
   if (image.size > 4_000_000) throw new Error('사진 용량이 너무 커서 올릴 수 없습니다. 다른 사진을 골라 주세요.')
   form.set('image', image, 'inspection.jpg')
+  form.set('fileName', photo.name)
   const r = await api<AnalysisResult>('/api/ai/analyze', { method: 'POST', body: form })
   return {
     buildingId,
